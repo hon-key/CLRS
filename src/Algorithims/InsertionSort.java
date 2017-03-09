@@ -19,14 +19,14 @@ public class InsertionSort {
         for (int j = 1;j <= seq.length - 1; j++) {
             key = seq[j];
             int i;
-            for (i = j - 1; i >= 0 && bigerOrSamller(seq[i],key); i--) {
+            for (i = j - 1; i >= 0 && biggerOrSamller(seq[i],key); i--) {
                 seq[i + 1] = seq[i];
             }
             seq[i + 1] = key;
         }
         return seq;
     }
-    private boolean bigerOrSamller(int value,int key) {
+    private boolean biggerOrSamller(int value,int key) {
         switch (this.sortType) {
             case ascending: return value > key;
             case descendiing: return value < key;
