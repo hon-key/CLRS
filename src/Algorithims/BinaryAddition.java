@@ -14,10 +14,10 @@ public class BinaryAddition {
         Bit(int i) {value = i;}
     }
     private class addResult {
-        public boolean isCarry;
+        public int carryBit;
         public Bit bit;
-        public addResult(int value,boolean isCarry) {
-            this.isCarry = isCarry;
+        public addResult(int value,int carryBit) {
+            this.carryBit = carryBit;
             bit = value == 0 ? Bit.zero : bit.one;
         }
     }
@@ -37,26 +37,21 @@ public class BinaryAddition {
         if (!(isBinary(A) && isBinary(B))) throw new Exception();
         return new BinaryAddition(A,B);
     }
-    public boolean add() {
+    public void add() {
         for (int j = A.length - 1; j >= 0; j--) {
-            int Abit = A[j];
-            int Bbit = B[j];
-            int Cbit = C[j+1];
-            addResult result = bitAdd(Abit,Bbit,Cbit);
-            if (result == null) return false;
+            addResult result = bitAdd(A[j],B[j],C[j+1]);
             C[j+1] = result.bit.value;
-            if (result.isCarry) C[j] += 1;
+            C[j] += result.carryBit;
         }
-        return true;
     }
 
     private addResult bitAdd(int b1,int b2,int b3) {
         int sum = b1 + b2 + b3;
         switch (sum) {
-            case 0: return new addResult(0,false);
-            case 1: return new addResult(1,false);
-            case 2: return new addResult(0,true);
-            case 3: return new addResult(1,true);
+            case 0: return new addResult(0,0);
+            case 1: return new addResult(1,0);
+            case 2: return new addResult(0,1);
+            case 3: return new addResult(1,1);
             default: return null;
         }
     }
