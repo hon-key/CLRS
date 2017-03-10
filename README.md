@@ -26,3 +26,11 @@
    System.out.println(Arrays.toString(ba.B));
    System.out.println(Arrays.toString(ba.C));
 ```
+**SelectionSort**
+
+```java
+	int[] ss_A = {1,4,7,9,10,3,20,8,3,2,4,4};
+   	SelectionSort ss = new SelectionSort(ss_A);
+	System.out.println(Arrays.toString(ss_A));
+	System.out.println(Arrays.toString(ss.sort()));
+```
