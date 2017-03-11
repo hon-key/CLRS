@@ -34,6 +34,6 @@ public class Main {
         int[] ms_A = {1,4,3,2,7,9,5,10,20,15};
         MergeSort ms = new MergeSort(ms_A);
         System.out.println(Arrays.toString(ms_A));
-        System.out.println(Arrays.toString(ms.sort()));
+        System.out.println(Arrays.toString(ms.sort(false)));
     }
 }
