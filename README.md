@@ -43,11 +43,31 @@
 **MergeSort**
 
 ```java
-	int[] ms_A = {1,4,3,2,7,9,5,10,20,15};
-	MergeSort ms = new MergeSort(ms_A);
-  	System.out.println(Arrays.toString(ms_A));
-  	//sortWithSentinel
-	System.out.println(Arrays.toString(ms.sort(true)));
-	//sortWithoutSentinel
-	System.out.println(Arrays.toString(ms.sort(false)));
+	int[] ms_A = {6,5,4,3,2,7};
+  	MergeSort ms = new MergeSort(ms_A);
+ 	System.out.println("MergeSort: ");
+ 	System.out.println(Arrays.toString(ms_A));
+  	System.out.println(Arrays.toString(ms.sort(false)));
+	System.out.println("Inversion: " + ms.inversion);
+```
+
+**BubbleSort**
+
+```java
+	int[] bs_A = {1,4,2,9,5,18,15,17,12};
+	BubbleSort bs = new BubbleSort(bs_A);
+	System.out.println("BubbleSort: ");
+	System.out.println(Arrays.toString(bs_A));
+	System.out.println(Arrays.toString(bs.sort()));
+```
+
+**Horner**
+
+```java
+	int[] hornerA = {20,20,3,6,9,12};
+	int x = 8;
+  	Horner h = new Horner(hornerA,x);
+ 	System.out.println("Horner: ");
+  	System.out.println("Normal: " + h.normalCal());
+  	System.out.println("Special: " + h.specialCal());
 ```
