@@ -1,7 +1,4 @@
 package Algorithims;
-
-import com.sun.org.apache.bcel.internal.generic.FALOAD;
-
 /**
  * Created by caihongji on 2017/3/9.
  * 练习：2.1-4
