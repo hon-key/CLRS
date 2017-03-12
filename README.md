@@ -10,10 +10,14 @@
 **LineQuery:**
 
 ```java
-	int[] A = {1,4,6,13};
-	int v = 6;
-	LineQuery lq = new LineQuery(A,v);
-	System.out.println(lq.query());
+	int[] lq_A = {1,4,6,13};
+  	int v = 6;
+	LineQuery lq = new LineQuery(lq_A,v);
+	System.out.println("lineQuery: " + lq.query());
+  	int[] lq_B = {1,2,3,14};
+ 	int v_d = 16;
+  	LineQuery lq_d = new LineQuery(lq_B,v_d);
+	System.out.println("dichotomy: " + lq_d.queryWithDichotomy());
 ```
 
 **BinaryAddition**
