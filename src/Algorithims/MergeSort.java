@@ -11,15 +11,15 @@ public class MergeSort {
     public MergeSort(int[] seq) {this.seq = seq;}
     public int[] sort(boolean sentinel) {
         this.sentinel = sentinel;
-        subMergeSort(seq,0,seq.length - 1);
+        mergeSort(seq,0,seq.length - 1);
         return seq.clone();
     }
 
-    private void subMergeSort(int[] A,int startIndex,int stopIndex) {
+    private void mergeSort(int[] A,int startIndex,int stopIndex) {
         if (startIndex < stopIndex) {
             int middleIndex = (startIndex + stopIndex) / 2;
-            subMergeSort(A,startIndex,middleIndex);
-            subMergeSort(A,middleIndex + 1,stopIndex);
+            mergeSort(A,startIndex,middleIndex);
+            mergeSort(A,middleIndex + 1,stopIndex);
             if (sentinel) merge(A,startIndex,middleIndex,stopIndex);
             else mergeWithNoSentinel(A,startIndex,middleIndex,stopIndex);
         }

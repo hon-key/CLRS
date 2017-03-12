@@ -13,10 +13,14 @@ public class Main {
         System.out.println("InsertionSort: " + Arrays.toString(is.sort()));
         System.out.println("InsertionSortWithRecursion: " + Arrays.toString(is.sortWithRecursion()));
 
-        int[] A = {1,4,6,13};
+        int[] lq_A = {1,4,6,13};
         int v = 6;
-        LineQuery lq = new LineQuery(A,v);
+        LineQuery lq = new LineQuery(lq_A,v);
         System.out.println("lineQuery: " + lq.query());
+        int[] lq_B = {1,2,3,14};
+        int v_d = 16;
+        LineQuery lq_d = new LineQuery(lq_B,v_d);
+        System.out.println("dichotomy: " + lq_d.queryWithDichotomy());
 
         int[] _A = {1,1,0,1,1,0,1,1,1,0};
         int[] B = {1,0,0,0,1,0,0,1,0,1};
