@@ -3,10 +3,12 @@ package Algorithims;
 /**
  * Created by caihongji on 2017/3/10.
  * 算法名称 : 归并排序
+ * p24 2-4 逆序对
  */
 public class MergeSort {
     public final int[] seq;
     public boolean sentinel = true;
+    public int inversion = 0;
 
     public MergeSort(int[] seq) {this.seq = seq;}
     public int[] sort(boolean sentinel) {
@@ -14,7 +16,6 @@ public class MergeSort {
         mergeSort(seq,0,seq.length - 1);
         return seq.clone();
     }
-
     private void mergeSort(int[] A,int startIndex,int stopIndex) {
         if (startIndex < stopIndex) {
             int middleIndex = (startIndex + stopIndex) / 2;
@@ -31,11 +32,12 @@ public class MergeSort {
         seq1[seq1.length - 1] = seq2[seq2.length - 1] = Integer.MAX_VALUE;
         int i = 0,j = 0;
         for (int k = startIndex; k <= stopIndex; k++) {
-            if (seq1[i] < seq2[j]) {
+            if (seq1[i] <= seq2[j]) {
                 A[k] = seq1[i]; i++;
             }
             else {
                 A[k] = seq2[j]; j++;
+                if (seq1[i] != Integer.MAX_VALUE) inversion++;
             }
         }
     }
@@ -46,11 +48,12 @@ public class MergeSort {
         for (int k = startIndex; k <= stopIndex; k++) {
             int vseq1 = i == seq1.length ? Integer.MAX_VALUE : seq1[i];
             int vseq2 = j == seq2.length ? Integer.MAX_VALUE : seq2[j];
-            if (vseq1 < vseq2) {
+            if (vseq1 <= vseq2) {
                 A[k] = seq1[i]; i++;
             }
             else {
                 A[k] = seq2[j];j++;
+                if (vseq1 != Integer.MAX_VALUE) inversion += seq1.length - i;
             }
         }
     }
