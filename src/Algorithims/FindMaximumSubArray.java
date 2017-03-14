@@ -56,4 +56,23 @@ public class FindMaximumSubArray {
         else if (right.sum > max.sum) max = right;
         return max;
     }
+
+    public static SubSeq violentFind(int[] seq) {
+        int sum = Integer.MIN_VALUE;
+        int low = 0,high = 0;
+        for (int i = 0; i < seq.length; i++) {
+            int previousSum = seq[i];
+            for (int j = i + 1; j < seq.length; j++) {
+                int currentSum = previousSum + seq[j];
+                if (currentSum > sum) {
+                    sum = currentSum;
+                    low = i; high = j+1;
+                }
+                previousSum = currentSum;
+            }
+        }
+        SubSeq subseq = new SubSeq(low,high,sum);
+        return subseq;
+    }
+
 }
