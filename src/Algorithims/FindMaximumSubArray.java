@@ -64,9 +64,9 @@ public class FindMaximumSubArray {
             int previousSum = seq[i];
             for (int j = i + 1; j < seq.length; j++) {
                 int currentSum = previousSum + seq[j];
-                if (currentSum > sum) {
+                if (currentSum > sum || (currentSum == sum && (high-low) > (j-i))) {
                     sum = currentSum;
-                    low = i; high = j+1;
+                    low = i;high = j;
                 }
                 previousSum = currentSum;
             }
