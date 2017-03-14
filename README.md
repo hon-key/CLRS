@@ -75,9 +75,13 @@
 **FindMaximumSubArray**
 
 ```java
-	int[] fmsa_A = {10,-5,-5,10,3,-3,15,-12};
-  	FindMaximumSubArray.SubSeq recursion = FindMaximumSubArray.find(fmsa_A);
-	FindMaximumSubArray.SubSeq violentFind = FindMaximumSubArray.find(fmsa_A);
+	int[] fmsa_B = {0,1,-5,6};
+ 	FindMaximumSubArray.SubSeq recursion = FindMaximumSubArray.recursionFind(fmsa_B);
+  	FindMaximumSubArray.SubSeq violentFind = FindMaximumSubArray.violentFind(fmsa_B);
+ 	FindMaximumSubArray.SubSeq lineFind = FindMaximumSubArray.LinearFind(fmsa_B);
+ 	System.out.println("FindMaximumSubArray: ");
+ 	System.out.println(Arrays.toString(fmsa_A));
 	System.out.println("recursion: [low: " + recursion.low + ", high: " + recursion.high + ", sum: " + recursion.sum + "]");
- 	System.out.print("violentFind: [low: " + violentFind.low + ", high: " + violentFind.high + ", sum: " + violentFind.sum + "]");
+ 	System.out.println("violentFind: [low: " + violentFind.low + ", high: " + violentFind.high + ", sum: " + violentFind.sum + "]") ;
+ 	System.out.println("lineFind: [low: " + lineFind.low + ", high: " + lineFind.high + ", sum: " + lineFind.sum + "]");
 ```
