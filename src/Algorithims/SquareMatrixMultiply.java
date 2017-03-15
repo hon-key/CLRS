@@ -17,13 +17,13 @@ public class SquareMatrixMultiply {
     /*
      *  Data Structure
      */
-    public static class Range {
+    private static class Range {
         public int begin;
         public int end;
         public Range(int begin,int end) { this.begin = begin; this.end = end; }
         public int capacity() { return end - begin + 1; }
     }
-    public static class Matrix {
+    private static class Matrix {
         public Range i;
         public Range j;
         public int[][] raw;
@@ -62,7 +62,7 @@ public class SquareMatrixMultiply {
             return newMatrix;
         }
     }
-    public static class BreakDown {
+    private static class BreakDown {
         Matrix _11;Matrix _12;Matrix _21;Matrix _22;
         private BreakDown() {}
         public static BreakDown breakdown(Matrix m) {
@@ -90,7 +90,7 @@ public class SquareMatrixMultiply {
             return b;
         }
     }
-    public static class CreateS {
+    private static class CreateS {
         Matrix S1,S2,S3,S4,S5,S6,S7,S8,S9,S10;
         private CreateS() {}
         public static CreateS create(BreakDown A,BreakDown B) {
