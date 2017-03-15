@@ -14,7 +14,7 @@ public class FindMaximumSubArray {
             this.low = low; this.high = high; this.sum = sum;
         }
     }
-    public static SubSeq recursionFind(int[] seq) {
+    public static SubSeq recursiveFind(int[] seq) {
         return findMaximumSubArray(seq,0,seq.length-1);
     }
     private static SubSeq findMaximumSubArray(int[] seq,int low,int high) {

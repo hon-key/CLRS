@@ -22,7 +22,7 @@ public class InsertionSort {
         }
         return seq.clone();
     }
-    public int[] sortWithRecursion() {
+    public int[] recursiveSort() {
         recursion(seq,0,seq.length-1);
         return seq.clone();
     }

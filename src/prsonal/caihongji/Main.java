@@ -12,7 +12,7 @@ public class Main {
         int[] seq = {10,4,5,7,13,15,12,11};
         InsertionSort is = new InsertionSort(seq,InsertionSort.InsertionSortType.ascending);
         System.out.println("InsertionSort: " + Arrays.toString(is.sort()));
-        System.out.println("InsertionSortWithRecursion: " + Arrays.toString(is.sortWithRecursion()));
+        System.out.println("InsertionSortWithRecursion: " + Arrays.toString(is.recursiveSort()));
 
         int[] lq_A = {1,4,6,13};
         int v = 6;
@@ -61,7 +61,7 @@ public class Main {
 
         int[] fmsa_A = {10,-5,-5,10,3,-3,15,-12};
         int[] fmsa_B = {0,1,-5,6};
-        FindMaximumSubArray.SubSeq recursion = FindMaximumSubArray.recursionFind(fmsa_B);
+        FindMaximumSubArray.SubSeq recursion = FindMaximumSubArray.recursiveFind(fmsa_B);
         FindMaximumSubArray.SubSeq violentFind = FindMaximumSubArray.violentFind(fmsa_B);
         FindMaximumSubArray.SubSeq lineFind = FindMaximumSubArray.LinearFind(fmsa_B);
         System.out.println("FindMaximumSubArray: ");
@@ -69,5 +69,25 @@ public class Main {
         System.out.println("recursion: [low: " + recursion.low + ", high: " + recursion.high + ", sum: " + recursion.sum + "]");
         System.out.println("violentFind: [low: " + violentFind.low + ", high: " + violentFind.high + ", sum: " + violentFind.sum + "]") ;
         System.out.println("lineFind: [low: " + lineFind.low + ", high: " + lineFind.high + ", sum: " + lineFind.sum + "]");
+
+        int[][] mA = {
+                {1,1,1,1},
+                {1,1,1,1},
+                {1,1,1,1},
+                {2,10,1,5}
+        };
+        int[][] mB = {
+                {1,1,1,1},
+                {1,1,1,1},
+                {1,1,1,1},
+                {1,1,1,1}
+        };
+        int[][] result = SquareMatrixMultiply.multi(mA,mB);
+        for (int i = 0; i < result.length; i++) {
+            System.out.println(Arrays.toString(result[i]));
+        }
+
+
+
     }
 }

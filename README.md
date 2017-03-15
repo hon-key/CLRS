@@ -85,3 +85,25 @@
  	System.out.println("violentFind: [low: " + violentFind.low + ", high: " + violentFind.high + ", sum: " + violentFind.sum + "]") ;
  	System.out.println("lineFind: [low: " + lineFind.low + ", high: " + lineFind.high + ", sum: " + lineFind.sum + "]");
 ```
+
+**Strassen**
+<br><font face = "Sans-serif" color = "Gray">Square-Matrix-Multyply-Recursive</font>
+
+```java
+	int[][] mA = {
+   		{1,1,1,1},
+  		{1,1,1,1},
+     	{1,1,1,1},
+  	  	{2,10,1,5}
+ 	};
+ 	int[][] mB = {
+     	{1,1,1,1},
+     	{1,1,1,1},
+  		{1,1,1,1},
+     	{1,1,1,1}
+ 	};
+	int[][] strassen = SquareMatrixMultiply.multi(mA,mB);
+ 	for (int i = 0; i < result.length; i++) {
+  		System.out.println(Arrays.toString(strassen[i]));
+  	}
+```
