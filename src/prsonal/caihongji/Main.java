@@ -71,21 +71,31 @@ public class Main {
         System.out.println("lineFind: [low: " + lineFind.low + ", high: " + lineFind.high + ", sum: " + lineFind.sum + "]");
 
         int[][] mA = {
-                {1,1,1,1},
-                {1,1,1,1},
-                {1,1,1,1},
-                {2,10,1,5}
+                {1,1,1,0},
+                {1,1,1,0},
+                {1,1,1,0},
+                {0,0,0,0}
+
         };
         int[][] mB = {
-                {1,1,1,1},
-                {1,1,1,1},
-                {1,1,1,1},
-                {1,1,1,1}
+                {6,6,6,0},
+                {6,6,6,0},
+                {6,6,6,0},
+                {0,0,0,0}
         };
+        System.out.println("SquareMatrixMultiply: ");
         int[][] result = SquareMatrixMultiply.multi(mA,mB);
         for (int i = 0; i < result.length; i++) {
             System.out.println(Arrays.toString(result[i]));
         }
+
+
+        HireAssistant hire = new HireAssistant();
+        System.out.println("HireAssistant: ");
+        System.out.println("Directly: ");
+        hire.hireDirectly(1,2,3,4,5);
+        System.out.println("Randomly: ");
+        hire.hireRandomly(1,2,3,4,5);
 
 
 

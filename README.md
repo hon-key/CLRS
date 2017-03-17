@@ -107,3 +107,14 @@
   		System.out.println(Arrays.toString(strassen[i]));
   	}
 ```
+
+**HireAssistant**
+
+```java
+	HireAssistant hire = new HireAssistant();
+ 	System.out.println("HireAssistant: ");
+  	System.out.println("Directly: ");
+  	hire.hireDirectly(1,2,3,4,5);
+  	System.out.println("Randomly: ");
+  	hire.hireRandomly(1,2,3,4,5);
+```
