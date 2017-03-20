@@ -5,7 +5,7 @@ package Algorithims;
  * 算法 : 堆排序
  */
 public class HeapSort {
-    public static class Heap {
+    private static class Heap {
         public int heapSize;
         public int[] raws;
         public Heap(int[] seq) {

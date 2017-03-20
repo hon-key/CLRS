@@ -128,3 +128,20 @@
   	HeapSort.sort(hps_A);
   	System.out.println(Arrays.toString(hps_A));
 ```
+
+**PriorityQueue**
+
+```java
+	int[] pq_A = {1,3,2,5,4};
+	PriorityQueue pq = new PriorityQueue(pq_A);
+  	System.out.println("PriorityQueue:");
+  	System.out.print("Raws:"); pq.printRaw();
+  	System.out.print("Heap:"); pq.printHeap();
+  	System.out.println("Maximum:" + pq.maximum());
+  	pq.extractMax();
+  	System.out.print("ExtractMax:");pq.printHeap();
+  	pq.insert(10);
+  	System.out.print("Insert:");pq.printHeap();
+  	pq.increaseKey(1,15);
+  	System.out.print("IncreseKey:");pq.printHeap();
+```
