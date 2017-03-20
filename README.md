@@ -118,3 +118,13 @@
   	System.out.println("Randomly: ");
   	hire.hireRandomly(1,2,3,4,5);
 ```
+
+**HeapSort**
+
+```java
+	int[] hps_A = {6,1,5,3,2,4};
+ 	System.out.println("HeapSort: ");
+  	System.out.println(Arrays.toString(hps_A));
+  	HeapSort.sort(hps_A);
+  	System.out.println(Arrays.toString(hps_A));
+```

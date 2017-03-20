@@ -89,13 +89,18 @@ public class Main {
             System.out.println(Arrays.toString(result[i]));
         }
 
-
         HireAssistant hire = new HireAssistant();
         System.out.println("HireAssistant: ");
         System.out.println("Directly: ");
         hire.hireDirectly(1,2,3,4,5);
         System.out.println("Randomly: ");
         hire.hireRandomly(1,2,3,4,5);
+
+        int[] hps_A = {6,1,5,3,2,4};
+        System.out.println("HeapSort: ");
+        System.out.println(Arrays.toString(hps_A));
+        HeapSort.sort(hps_A);
+        System.out.println(Arrays.toString(hps_A));
 
 
 
