@@ -114,7 +114,7 @@ public class Main {
         pq.insert(10);
         System.out.print("Insert:");pq.printHeap();
         pq.increaseKey(1,15);
-        System.out.print("IncreseKey:");pq.printHeap();
+        System.out.print("IncreaseKey:");pq.printHeap();
 
     }
 }
