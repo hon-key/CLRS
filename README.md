@@ -145,3 +145,14 @@
   	pq.increaseKey(1,15);
   	System.out.print("IncreseKey:");pq.printHeap();
 ```
+
+**QuickSort**
+
+```java
+	int[] qs_A = {3,7,6,5,4,4};
+	System.out.println("QuickSort:");
+	System.out.println(Arrays.toString(qs_A));
+ 	QuickSort.isAscending = false;
+ 	QuickSort.sort(qs_A);
+	System.out.println(Arrays.toString(qs_A));
+```

@@ -3,7 +3,6 @@ package prsonal.caihongji;
 
 import Algorithims.*;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Main {
 
@@ -115,6 +114,13 @@ public class Main {
         System.out.print("Insert:");pq.printHeap();
         pq.increaseKey(1,15);
         System.out.print("IncreaseKey:");pq.printHeap();
+
+        int[] qs_A = {3,7,6,5,4,4};
+        System.out.println("QuickSort:");
+        System.out.println(Arrays.toString(qs_A));
+        QuickSort.isAscending = false;
+        QuickSort.sort(qs_A);
+        System.out.println(Arrays.toString(qs_A));
 
     }
 }
