@@ -1,21 +1,29 @@
 package Algorithims;
 
+import java.util.Random;
+
 /**
  * Created by caihongji on 2017/3/21.
  * 算法名称 : 快速排序
  * p97 7.1-4 非递增
+ * 随机化版本
  */
 public class QuickSort {
     private QuickSort() {}
     public static boolean isAscending = true;
+    public static boolean isRandom = true;
     public static void sort(int[] seq) {
         quickSort(seq,0,seq.length-1);
     }
     private static void quickSort(int[] seq,int p, int r) {
-        int q = partition(seq,p,r);
-        if (q == -1) return;
-        quickSort(seq, p, (q - 1));
-        quickSort(seq, (q + 1), r);
+        if (p < r) {
+            if (isRandom)
+                exchange(seq, random(p, r), r);
+
+            int q = partition(seq,p,r);
+            quickSort(seq, p, (q - 1));
+            quickSort(seq, (q + 1), r);
+        }
     }
     private static int partition(int[] seq,int p, int r) {
         if (p < r) {
@@ -36,5 +44,13 @@ public class QuickSort {
         int tmp = seq[i];
         seq[i] = seq[j];
         seq[j] = tmp;
+    }
+    private static int random(int begin,int end) {
+        if (begin >= end)
+            return end;
+
+        Random r = new Random();
+        int bounds = end + 1 - begin;
+        return begin + r.nextInt(bounds);
     }
 }

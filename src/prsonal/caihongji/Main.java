@@ -3,6 +3,7 @@ package prsonal.caihongji;
 
 import Algorithims.*;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Main {
 
@@ -119,8 +120,15 @@ public class Main {
         System.out.println("QuickSort:");
         System.out.println(Arrays.toString(qs_A));
         QuickSort.isAscending = false;
+        QuickSort.isRandom = true;
         QuickSort.sort(qs_A);
         System.out.println(Arrays.toString(qs_A));
+
+        int[] cs_A = {6,8,4,2,2,1,4,7,5,13,16,18,20,14,15};
+        int[] cs_B = CountingSort.sort(cs_A);
+        System.out.println("CountingSort:");
+        System.out.println(Arrays.toString(cs_A));
+        System.out.println(Arrays.toString(cs_B));
 
     }
 }

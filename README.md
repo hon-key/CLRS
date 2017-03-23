@@ -156,3 +156,13 @@
  	QuickSort.sort(qs_A);
 	System.out.println(Arrays.toString(qs_A));
 ```
+
+**CountingSort**
+
+```java
+	int[] cs_A = {6,8,4,2,2,1,4,7,5,13,16,18,20,14,15};
+ 	int[] cs_B = CountingSort.sort(cs_A);
+ 	System.out.println("CountingSort:");
+ 	System.out.println(Arrays.toString(cs_A));
+ 	System.out.println(Arrays.toString(cs_B));
+```
