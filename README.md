@@ -178,3 +178,13 @@
   		System.out.println("[" + str + "]");
 	}
 ```
+
+**BucketSort**
+
+```java
+	double[] bucket_A = {0.14,0.13,0.2,0.11,0.99,0.88,0.7,0.6,0.5,0.4,0.3,0.2,0.1,0.898,0.875};
+	double[][]bucket_B = BucketSort.sort(bucket_A);
+	for (double[] list : bucket_B) {
+		System.out.println(Arrays.toString(list));
+	}
+```

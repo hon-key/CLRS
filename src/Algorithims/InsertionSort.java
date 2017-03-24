@@ -7,44 +7,55 @@ package Algorithims;
  */
 public class InsertionSort {
     public enum InsertionSortType { ascending,descendiing }
-    public final int seq[];
+    public final double seq[];
     public InsertionSortType sortType;
     public InsertionSort(int seq[],InsertionSortType type) {
+        this.seq = convertToDouble(seq);
+        this.sortType = type;
+    }
+    public InsertionSort(double seq[],InsertionSortType type) {
         this.seq = seq;
         this.sortType = type;
     }
-    public int[] sort() {
-        int[] seq = this.seq;
-        int key;
+    public double[] sort() {
+        double[] seq = this.seq;
+        double key;
         for (int j = 1;j <= seq.length - 1; j++) {
             key = seq[j];
             insert(seq,key,j);
         }
         return seq.clone();
     }
-    public int[] recursiveSort() {
+    public double[] recursiveSort() {
         recursion(seq,0,seq.length-1);
         return seq.clone();
     }
-    private void recursion(int[] seq,int begin,int end) {
+    private void recursion(double[] seq,int begin,int end) {
         if (end > begin) {
             recursion(seq,begin,(end-1));
             insert(seq,seq[end],end);
         }
     }
-    private void insert(int[] seq,int key,int index) {
+    private void insert(double[] seq,double key,int index) {
         int i;
         for (i = index - 1; i >= 0 && biggerOrSmaller(seq[i],key); i--) {
             seq[i + 1] = seq[i];
         }
         seq[i + 1] = key;
     }
-    private boolean biggerOrSmaller(int value,int key) {
+    private boolean biggerOrSmaller(double value,double key) {
         switch (this.sortType) {
             case ascending: return value > key;
             case descendiing: return value < key;
             default:return false;
         }
+    }
+    private double[] convertToDouble(int[] seq) {
+        double[] doubleSeq = new double[seq.length];
+        for (int i = 0; i < seq.length;i++) {
+            doubleSeq[i] = (double)seq[i];
+        }
+        return doubleSeq;
     }
 }
 
