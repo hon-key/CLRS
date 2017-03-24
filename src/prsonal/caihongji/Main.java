@@ -124,11 +124,19 @@ public class Main {
         QuickSort.sort(qs_A);
         System.out.println(Arrays.toString(qs_A));
 
-        int[] cs_A = {6,8,4,2,2,1,4,7,5,13,16,18,20,14,15};
+        int[] cs_A = {'a','c','d','b','w'};
         int[] cs_B = CountingSort.sort(cs_A);
         System.out.println("CountingSort:");
         System.out.println(Arrays.toString(cs_A));
         System.out.println(Arrays.toString(cs_B));
+
+        String[] rs_A = {"Irelia","Trundle","Ezreal","Alistar",
+                "Garen","Graves","Jayce","Katarina",
+                "LeBlanc","lulu","Lux"};
+        String[] rs_B = RadixSort.sort(rs_A);
+        for (String str : rs_B) {
+            System.out.println("[" + str + "]");
+        }
 
     }
 }
