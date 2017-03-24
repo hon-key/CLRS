@@ -50,9 +50,9 @@ public class HeapSort {
     private static int right(int i) { return 2*i + 1 + 1; }
     private static int max(Heap heap,int i,int l,int r) {
         int largest;
-        if (l < heap.heapSize && heap.raws[l] >= heap.raws[i])          largest = l;
+        if (l < heap.heapSize && heap.raws[l] > heap.raws[i])          largest = l;
         else                                                            largest = i;
-        if (r < heap.heapSize && heap.raws[r] >= heap.raws[largest])    largest = r;
+        if (r < heap.heapSize && heap.raws[r] > heap.raws[largest])    largest = r;
         return largest;
     }
 }
