@@ -1,4 +1,4 @@
-# `CLRS` 练习
+# SORT
 **InsertionSort:**
 
 ```java
@@ -187,4 +187,13 @@
 	for (double[] list : bucket_B) {
 		System.out.println(Arrays.toString(list));
 	}
+```
+
+**RandomizeSelect**
+
+```java
+	int[] randomizeSelect_A = {1,3,4,2};
+	int val = RandomizedSelect.select(randomizeSelect_A,2);	
+	System.out.println(Arrays.toString(randomizeSelect_A));
+	System.out.println(val);
 ```
