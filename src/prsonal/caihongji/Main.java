@@ -7,68 +7,81 @@ import java.util.Random;
 
 public class Main {
 
+    public static void print(int[] seq) {
+        System.out.println(Arrays.toString(seq));
+    }
+    public static void print(double[] seq) {
+        System.out.println(Arrays.toString(seq));
+    }
+    public static void print(int val) {
+        System.out.println(val);
+    }
+    public static void print(String str) {
+        System.out.println(str);
+    }
+
     public static void main(String[] args) throws Exception {
 	// write your code here
         int[] seq = {10,4,5,7,13,15,12,11};
         InsertionSort is = new InsertionSort(seq,InsertionSort.InsertionSortType.ascending);
-        System.out.println("InsertionSort: " + Arrays.toString(is.sort()));
-        System.out.println("InsertionSortWithRecursion: " + Arrays.toString(is.recursiveSort()));
+        print("InsertionSort: " + Arrays.toString(is.sort()));
+        print("InsertionSortWithRecursion: " + Arrays.toString(is.recursiveSort()));
 
         int[] lq_A = {1,4,6,13};
         int v = 6;
         LineQuery lq = new LineQuery(lq_A,v);
-        System.out.println("lineQuery: " + lq.query());
+        print("lineQuery: " + lq.query());
         int[] lq_B = {1,2,3,14};
         int v_d = 16;
         LineQuery lq_d = new LineQuery(lq_B,v_d);
-        System.out.println("dichotomy: " + lq_d.queryWithDichotomy());
+        print("dichotomy: " + lq_d.queryWithDichotomy());
 
         int[] _A = {1,1,0,1,1,0,1,1,1,0};
         int[] B = {1,0,0,0,1,0,0,1,0,1};
         BinaryAddition ba = BinaryAddition.create(_A,B);
         ba.add();
-        System.out.println("BinaryAddition: ");
-        System.out.println(Arrays.toString(ba.A));
-        System.out.println(Arrays.toString(ba.B));
-        System.out.println(Arrays.toString(ba.C));
+        print("BinaryAddition: ");
+        print(Arrays.toString(ba.A));
+        print(Arrays.toString(ba.B));
+        print(Arrays.toString(ba.C));
 
         int[] ss_A = {1,4,7,9,10,3,20,8,3,2,4,4};
         SelectionSort ss = new SelectionSort(ss_A);
-        System.out.println("SelectionSort: ");
-        System.out.println(Arrays.toString(ss_A));
-        System.out.println(Arrays.toString(ss.sort()));
+        print("SelectionSort: ");
+        print(Arrays.toString(ss_A));
+        print(Arrays.toString(ss.sort()));
 
 
         int[] ms_A = {6,5,4,3,2,7};
         MergeSort ms = new MergeSort(ms_A);
-        System.out.println("MergeSort: ");
-        System.out.println(Arrays.toString(ms_A));
-        System.out.println(Arrays.toString(ms.sort(false)));
-        System.out.println("Inversion: " + ms.inversion);
+        print("MergeSort: ");
+        print(ms_A);
+        print(Arrays.toString(ms.sort(false)));
+        print("Inversion: " + ms.inversion);
 
         int[] bs_A = {1,4,2,9,5,18,15,17,12};
         BubbleSort bs = new BubbleSort(bs_A);
-        System.out.println("BubbleSort: ");
-        System.out.println(Arrays.toString(bs_A));
-        System.out.println(Arrays.toString(bs.sort()));
+        print("BubbleSort: ");
+        print(bs_A);
+        print(Arrays.toString(bs.sort()));
 
         int[] hornerA = {20,20,3,6,9,12};
         int x = 8;
         Horner h = new Horner(hornerA,x);
-        System.out.println("Horner: ");
-        System.out.println("Normal: " + h.normalCal());
-        System.out.println("Special: " + h.specialCal());
+        print("Horner: ");
+        print("Normal: " + h.normalCal());
+        print("Special: " + h.specialCal());
 
         int[] fmsa_A = {10,-5,-5,10,3,-3,15,-12};
         int[] fmsa_B = {0,1,-5,6};
         FindMaximumSubArray.SubSeq recursion = FindMaximumSubArray.recursiveFind(fmsa_B);
         FindMaximumSubArray.SubSeq violentFind = FindMaximumSubArray.violentFind(fmsa_B);
         FindMaximumSubArray.SubSeq lineFind = FindMaximumSubArray.LinearFind(fmsa_B);
-        System.out.println("FindMaximumSubArray: ");
-        System.out.println(Arrays.toString(fmsa_A));
-        System.out.println("recursion: [low: " + recursion.low + ", high: " + recursion.high + ", sum: " + recursion.sum + "]");
-        System.out.println("violentFind: [low: " + violentFind.low + ", high: " + violentFind.high + ", sum: " + violentFind.sum + "]") ;
-        System.out.println("lineFind: [low: " + lineFind.low + ", high: " + lineFind.high + ", sum: " + lineFind.sum + "]");
+        print("FindMaximumSubArray: ");
+        print(Arrays.toString(fmsa_A));
+        print("recursion: [low: " + recursion.low + ", high: " + recursion.high + ", sum: " + recursion.sum + "]");
+        print("violentFind: [low: " + violentFind.low + ", high: " + violentFind.high + ", sum: " + violentFind.sum + "]") ;
+        print("lineFind: [low: " + lineFind.low + ", high: " + lineFind.high + ", sum: " + lineFind.sum + "]");
 
         int[][] mA = {
                 {1,1,1,0},
@@ -83,32 +96,32 @@ public class Main {
                 {6,6,6,0},
                 {0,0,0,0}
         };
-        System.out.println("SquareMatrixMultiply: ");
+        print("SquareMatrixMultiply: ");
         int[][] result = SquareMatrixMultiply.multi(mA,mB);
         for (int i = 0; i < result.length; i++) {
-            System.out.println(Arrays.toString(result[i]));
+            print(result[i]);
         }
 
         HireAssistant hire = new HireAssistant();
-        System.out.println("HireAssistant: ");
-        System.out.println("Directly: ");
+        print("HireAssistant: ");
+        print("Directly: ");
         hire.hireDirectly(1,2,3,4,5);
-        System.out.println("Randomly: ");
+        print("Randomly: ");
         hire.hireRandomly(1,2,3,4,5);
 
         int[] hps_A = {6,1,5,3,2,4};
-        System.out.println("HeapSort: ");
-        System.out.println(Arrays.toString(hps_A));
+        print("HeapSort: ");
+        print(hps_A);
         HeapSort.sort(hps_A);
-        System.out.println(Arrays.toString(hps_A));
+        print(hps_A);
 
 
         int[] pq_A = {1,3,2,5,4};
         PriorityQueue pq = new PriorityQueue(pq_A);
-        System.out.println("PriorityQueue:");
+        print("PriorityQueue:");
         System.out.print("Raws:"); pq.printRaw();
         System.out.print("Heap:"); pq.printHeap();
-        System.out.println("Maximum:" + pq.maximum());
+        print("Maximum:" + pq.maximum());
         pq.extractMax();
         System.out.print("ExtractMax:");pq.printHeap();
         pq.insert(10);
@@ -117,36 +130,36 @@ public class Main {
         System.out.print("IncreaseKey:");pq.printHeap();
 
         int[] qs_A = {3,7,6,5,4,4};
-        System.out.println("QuickSort:");
-        System.out.println(Arrays.toString(qs_A));
+        print("QuickSort:");
+        print(qs_A);
         QuickSort.isAscending = false;
         QuickSort.isRandom = true;
         QuickSort.sort(qs_A);
-        System.out.println(Arrays.toString(qs_A));
+        print(qs_A);
 
         int[] cs_A = {'a','c','d','b','w'};
         int[] cs_B = CountingSort.sort(cs_A);
-        System.out.println("CountingSort:");
-        System.out.println(Arrays.toString(cs_A));
-        System.out.println(Arrays.toString(cs_B));
+        print("CountingSort:");
+        print(Arrays.toString(cs_A));
+        print(Arrays.toString(cs_B));
 
         String[] rs_A = {"Irelia","Trundle","Ezreal","Alistar",
                 "Garen","Graves","Jayce","Katarina",
                 "LeBlanc","lulu","Lux"};
         String[] rs_B = RadixSort.sort(rs_A);
         for (String str : rs_B) {
-            System.out.println("[" + str + "]");
+            print("[" + str + "]");
         }
-        System.out.println("QuickSort:");
+        print("QuickSort:");
         double[] bucket_A = {0.14,0.13,0.2,0.11,0.99};
         double[][]bucket_B = BucketSort.sort(bucket_A);
         for (double[] list : bucket_B)
-             System.out.println(Arrays.toString(list));
+            print(list);
 
         int[] randomizeSelect_A = {1,3,4,2};
         int val = RandomizedSelect.select(randomizeSelect_A,2);
-        System.out.println("QuickSort:");
-        System.out.println(Arrays.toString(randomizeSelect_A));
-        System.out.println(val);
+        print("QuickSort:");
+        print(randomizeSelect_A);
+        print(val);
     }
 }
