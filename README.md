@@ -7,7 +7,7 @@
   	System.out.println(Arrays.toString(is.sort()));
   	System.out.println("InsertionSortWithRecursion: " + Arrays.toString(is.sortWithRecursion()));
 ```
-**LineQuery:**
+**LinearQuery:**
 
 ```java
 	int[] lq_A = {1,4,6,13};
