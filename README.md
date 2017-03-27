@@ -3,17 +3,17 @@
 
 ```java
 	public static void print(int[] seq) {
-        System.out.println(Arrays.toString(seq));
-    }
-    public static void print(double[] seq) {
-        System.out.println(Arrays.toString(seq));
-    }
-    public static void print(int val) {
-        System.out.println(val);
-    }
-    public static void print(String str) {
-        System.out.println(str);
-    }
+ 		System.out.println(Arrays.toString(seq));
+ 	}
+ 	public static void print(double[] seq) {
+		System.out.println(Arrays.toString(seq));
+  	}
+ 	public static void print(int val) {
+ 		System.out.println(val);
+  	}
+	public static void print(String str) {
+		System.out.println(str);
+  	}
 ```
 
 # SORT
