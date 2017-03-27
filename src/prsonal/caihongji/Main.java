@@ -2,6 +2,9 @@ package prsonal.caihongji;
 
 
 import Algorithims.*;
+import Algorithims.DataStructure.Queue;
+import Algorithims.DataStructure.Stack;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -158,8 +161,22 @@ public class Main {
 
         int[] randomizeSelect_A = {1,3,4,2};
         int val = RandomizedSelect.select(randomizeSelect_A,2);
-        print("QuickSort:");
+        print("randommizeSelect:");
         print(randomizeSelect_A);
         print(val);
+
+
+        print("Stack:");
+        Stack stack = new Stack(100);
+        stack.push(3);stack.push(4);stack.push(5);
+        stack.push(8);stack.push(20);
+        stack.pop();
+        print(stack.raw());
+
+        print("Queue:");
+        Queue queue = new Queue(50);
+        queue.in(3);queue.in(4);queue.in(5);
+        queue.out();
+        print(queue.raw());
     }
 }

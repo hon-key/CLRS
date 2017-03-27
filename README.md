@@ -215,3 +215,26 @@
 	print(randomizeSelect_A);
 	print(val);
 ```
+
+# Data structure
+
+**Stack**
+
+```java
+	print("Stack:");
+	Stack stack = new Stack(100);
+  	stack.push(3);stack.push(4);stack.push(5);
+ 	stack.push(8);stack.push(20);
+ 	stack.pop();
+  	print(stack.raw());
+```
+
+**Queue**
+
+```java
+	print("Queue:");
+	Queue queue = new Queue(50);
+	queue.in(3);queue.in(4);queue.in(5);
+	queue.out();
+	print(queue.raw());
+```
