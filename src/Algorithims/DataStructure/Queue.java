@@ -2,6 +2,7 @@ package Algorithims.DataStructure;
 
 /**
  * Created by caihongji on 2017/3/27.
+ * 数据结构 : 队列
  */
 public class Queue {
     private int[] seq;

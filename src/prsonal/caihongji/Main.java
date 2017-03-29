@@ -2,8 +2,10 @@ package prsonal.caihongji;
 
 
 import Algorithims.*;
+import Algorithims.DataStructure.LinkList;
 import Algorithims.DataStructure.Queue;
 import Algorithims.DataStructure.Stack;
+import Algorithims.DataStructure.Tree;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -153,8 +155,8 @@ public class Main {
         for (String str : rs_B) {
             print("[" + str + "]");
         }
-        print("QuickSort:");
-        double[] bucket_A = {0.14,0.13,0.2,0.11,0.99};
+        print("BucketSort:");
+        double[] bucket_A = {0.14,0.13,0.2,0.11,0.99,0.998,0.989};
         double[][]bucket_B = BucketSort.sort(bucket_A);
         for (double[] list : bucket_B)
             print(list);
@@ -178,5 +180,26 @@ public class Main {
         queue.in(3);queue.in(4);queue.in(5);
         queue.out();
         print(queue.raw());
+
+        print("LinkList:");
+        LinkList head = new LinkList(LinkList.head,null);
+        Random r = new Random();
+        LinkList node = head;
+        for (int i = 0; i < 10; i++) {
+            node.next = new LinkList(r.nextInt(100), null);
+            node = node.next;
+            System.out.print("[+" + node.value + "]");
+        }
+        print("");
+        print(head.array());
+
+        print("BinaryTree:");
+        Tree.BinaryTree root = new Tree.BinaryTree(-1);
+        root.leftChild = new Tree.BinaryTree(10);
+        root.rightChild = new Tree.BinaryTree(20);
+        root.leftChild.leftChild = new Tree.BinaryTree(100);
+        root.rightChild.rightChild = new Tree.BinaryTree(67);
+        print(root.allValue());
+
     }
 }

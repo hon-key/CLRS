@@ -1,6 +1,6 @@
 package Algorithims;
 
-import sun.awt.image.ImageWatched;
+import Algorithims.DataStructure.LinkList;
 
 /**
  * Created by caihongji on 2017/3/24.
@@ -42,48 +42,5 @@ public class BucketSort {
             listArray[i] = tmp;
         }
         return listArray;
-    }
-
-    private static class LinkList {
-        double value;
-        LinkList next;
-        public static final int head = Integer.MIN_VALUE;
-        public LinkList(double value,LinkList next) {
-            this.value = value;
-            this.next = next;
-        }
-        public void insert(LinkList item) {
-            if (next == null)
-                next = item;
-            else
-                next.insert(item);
-        }
-        public double[] array(){
-            int length = length();
-            if (value == head) length--;
-            if (length == 0) return null;
-            double[] array = new double[length];
-            LinkList item;
-            if (value == head) item = next;
-            else  item = this;
-
-            for (int i = 0;i < length; i++) {
-                array[i] = item.value;
-                item = item.next;
-            }
-            return array;
-        }
-        public int length() {
-            LinkList item = this;
-            int length = 1;
-            for (;;) {
-                if (item.next != null) {
-                    length++;
-                    item = item.next;
-                }
-                else break;
-            }
-            return length;
-        }
     }
 }

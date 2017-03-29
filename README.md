@@ -238,3 +238,31 @@
 	queue.out();
 	print(queue.raw());
 ```
+
+**Linklist**
+
+```java
+	print("LinkList:");
+	LinkList head = new LinkList(LinkList.head,null);
+ 	Random r = new Random();
+  	LinkList node = head;
+ 	for (int i = 0; i < 10; i++) {
+  		node.next = new LinkList(r.nextInt(100), null);
+      	node = node.next;
+     	System.out.print("[+" + node.value + "]");
+ 	}
+  	print("");
+ 	print(head.array());
+```
+
+**BinaryTree**
+
+```java
+	print("BinaryTree:");
+  	Tree.BinaryTree root = new Tree.BinaryTree(-1);
+  	root.leftChild = new Tree.BinaryTree(10);
+  	root.rightChild = new Tree.BinaryTree(20);
+  	root.leftChild.leftChild = new Tree.BinaryTree(100;
+  	root.rightChild.rightChild = new Tree.BinaryTree(67);
+ 	print(root.allValue());
+```
