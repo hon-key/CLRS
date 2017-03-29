@@ -2,7 +2,7 @@ package Algorithims.DataStructure;
 
 /**
  * Created by caihongji on 2017/3/29.
- * 数据结构 : 二叉树、任意有根树
+ * 数据结构 : 二叉树
  */
 public class Tree {
     private static class IntObject {
@@ -20,11 +20,26 @@ public class Tree {
             this.value = value;
         }
 
-        public int[] allValue() {
+        public int[] allValue(boolean recursion) {
             int[] output = new int[count()];
             IntObject zero = new IntObject(0);
-            traversal(output,zero);
+            if (recursion) traversal(output,zero);
+            else  traversalWithNoRecursion(output,zero);
             return output;
+        }
+        private void traversalWithNoRecursion(int[] output,IntObject index) {
+            BinaryTree[] bt = new BinaryTree[output.length];
+            Stack<BinaryTree> stack = new Stack(bt);
+            BinaryTree node = this;
+            stack.push(node);
+            while (stack.hasNext()) {
+                node = stack.pop();
+                output[index.raw] = node.value;
+                index.add(1);
+                if (node.leftChild != null) stack.push(node.leftChild);
+                if (node.rightChild != null) stack.push(node.rightChild);
+            }
+
         }
         private void traversal(int[] output,IntObject index) {
             output[index.raw] = value;

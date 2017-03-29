@@ -7,6 +7,7 @@ import Algorithims.DataStructure.Queue;
 import Algorithims.DataStructure.Stack;
 import Algorithims.DataStructure.Tree;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -169,11 +170,15 @@ public class Main {
 
 
         print("Stack:");
-        Stack stack = new Stack(100);
+        Integer[] array = new Integer[100];
+        Stack<Integer> stack = new Stack(array);
         stack.push(3);stack.push(4);stack.push(5);
         stack.push(8);stack.push(20);
         stack.pop();
-        print(stack.raw());
+        ArrayList<Integer> raw = stack.raw();
+        for (Integer integer : raw)
+            System.out.print(integer.intValue() + ",");
+        print("");
 
         print("Queue:");
         Queue queue = new Queue(50);
@@ -199,7 +204,7 @@ public class Main {
         root.rightChild = new Tree.BinaryTree(20);
         root.leftChild.leftChild = new Tree.BinaryTree(100);
         root.rightChild.rightChild = new Tree.BinaryTree(67);
-        print(root.allValue());
+        print(root.rightChild.allValue(false));
 
     }
 }

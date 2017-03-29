@@ -222,11 +222,15 @@
 
 ```java
 	print("Stack:");
-	Stack stack = new Stack(100);
-  	stack.push(3);stack.push(4);stack.push(5);
+	Integer[] array = new Integer[100];
+ 	Stack<Integer> stack = new Stack(array);
+ 	stack.push(3);stack.push(4);stack.push(5);
  	stack.push(8);stack.push(20);
- 	stack.pop();
-  	print(stack.raw());
+  	stack.pop();
+	ArrayList<Integer> raw = stack.raw();
+ 	for (Integer integer : raw)
+  		System.out.print(integer.intValue() + ",");
+ 	print("");
 ```
 
 **Queue**
@@ -248,7 +252,7 @@
   	LinkList node = head;
  	for (int i = 0; i < 10; i++) {
   		node.next = new LinkList(r.nextInt(100), null);
-      	node = node.next;
+ 		node = node.next;
      	System.out.print("[+" + node.value + "]");
  	}
   	print("");
@@ -264,5 +268,5 @@
   	root.rightChild = new Tree.BinaryTree(20);
   	root.leftChild.leftChild = new Tree.BinaryTree(100;
   	root.rightChild.rightChild = new Tree.BinaryTree(67);
- 	print(root.allValue());
+ 	print(root.rightChild.allValue(false));
 ```
