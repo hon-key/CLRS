@@ -13,18 +13,12 @@ import java.util.Random;
 
 public class Main {
 
-    public static void print(int[] seq) {
+    private static void print(int[] seq) {
         System.out.println(Arrays.toString(seq));
     }
-    public static void print(double[] seq) {
-        System.out.println(Arrays.toString(seq));
-    }
-    public static void print(int val) {
-        System.out.println(val);
-    }
-    public static void print(String str) {
-        System.out.println(str);
-    }
+    private static void print(double[] seq) {System.out.println(Arrays.toString(seq));}
+    private static void print(int val) {System.out.println(val);}
+    private static void print(String str) {System.out.println(str);}
 
     public static void main(String[] args) throws Exception {
 	// write your code here
@@ -199,12 +193,16 @@ public class Main {
         print(head.array());
 
         print("BinaryTree:");
-        Tree.BinaryTree root = new Tree.BinaryTree(-1);
-        root.leftChild = new Tree.BinaryTree(10);
-        root.rightChild = new Tree.BinaryTree(20);
-        root.leftChild.leftChild = new Tree.BinaryTree(100);
-        root.rightChild.rightChild = new Tree.BinaryTree(67);
-        print(root.rightChild.allValue(false));
-
+        Tree.BinaryTree root = new Tree.BinaryTree(100);
+        root.setLeftChild(new Tree.BinaryTree(50));
+        root.setRightChild(new Tree.BinaryTree(110));
+        root.leftChild.setLeftChild(new Tree.BinaryTree(35));
+        root.leftChild.leftChild.setRightChild(new Tree.BinaryTree(40));
+        root.leftChild.leftChild.rightChild.setLeftChild(new Tree.BinaryTree(37));
+        root.leftChild.leftChild.rightChild.setRightChild(new Tree.BinaryTree(45));
+        root.rightChild.setRightChild(new Tree.BinaryTree(150));
+        root.rightChild.setLeftChild(new Tree.BinaryTree(105));
+        print(root.allValue(true, Tree.BinaryTree.WalkType.inorder));
+        print(root.find(105).toString());
     }
 }
