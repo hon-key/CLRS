@@ -203,6 +203,16 @@ public class Main {
         root.rightChild.setRightChild(new Tree.BinaryTree(150));
         root.rightChild.setLeftChild(new Tree.BinaryTree(105));
         print(root.allValue(true, Tree.BinaryTree.WalkType.inorder));
-        print(root.find(105).toString());
+        print(root.find(105).key);
+        print(root.maximum_Recursion().key);
+        print(root.rightChild.rightChild.predecessor().key);
+        root.insert(new Tree.BinaryTree(60));
+        root.insert_recursion(new Tree.BinaryTree(160));
+        print(root.allValue(true, Tree.BinaryTree.WalkType.inorder));
+        Tree.BinaryTree del = root.find(105);
+        root.deleteFromTree();
+        print(del.allValue(true, Tree.BinaryTree.WalkType.inorder));
+
+
     }
 }

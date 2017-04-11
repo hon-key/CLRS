@@ -136,6 +136,107 @@ public class Tree {
             }
             return target;
         }
+        public BinaryTree minimum() {
+            BinaryTree node = this;
+            while (node.leftChild != null)
+                node = node.leftChild;
+            return node;
+        }
+        public BinaryTree minimum_Recursion() {
+            BinaryTree node = this;
+            if (node.leftChild != null) return node.leftChild.minimum_Recursion();
+            return node;
+        }
+        public BinaryTree maximum() {
+            BinaryTree node = this;
+            while (node.rightChild != null)
+                node = node.rightChild;
+            return node;
+        }
+        public BinaryTree maximum_Recursion() {
+            BinaryTree node = this;
+            if (node.rightChild != null) return node.rightChild.maximum_Recursion();
+            return node;
+        }
+        public BinaryTree successor() {
+            BinaryTree node = this;
+            if (node.rightChild != null)
+                return node.rightChild.minimum();
+            BinaryTree nodeParent = node.parent;
+            while (nodeParent != null && node == nodeParent.rightChild) {
+                node = nodeParent;
+                nodeParent = node.parent;
+            }
+            return nodeParent;
+        }
+        public BinaryTree predecessor() {
+            BinaryTree node = this;
+            if (node.leftChild != null)
+                return node.leftChild.maximum();
+            BinaryTree nodeParent = node.parent;
+            while (nodeParent != null && node == nodeParent.leftChild) {
+                node = nodeParent;
+                nodeParent = node.parent;
+            }
+            return nodeParent;
+        }
+
+        public void insert(BinaryTree target) throws Exception {
+            if (this.parent != null) throw new Exception("接受插入的节点不是Root节点。");
+            BinaryTree leaf = null;
+            BinaryTree node = this;
+            while (node != null) {
+                leaf = node;
+                if (target.key < node.key)
+                    node = node.leftChild;
+                else node = node.rightChild;
+            }
+            target.parent = leaf;
+            if (target.key < leaf.key)
+                leaf.leftChild = target;
+            else leaf.rightChild = target;
+        }
+        public void insert_recursion(BinaryTree target) throws Exception  {
+            if (this.parent != null) throw new Exception("接受插入的节点不是Root节点。");
+            recursion(target);
+        }
+        private void recursion(BinaryTree target) {
+            if (target.key <= this.key) {
+                if (this.leftChild != null) this.leftChild.recursion(target);
+                else {this.leftChild = target;target.parent = this;}
+            }else if ( target.key > this.key) {
+                if (this.rightChild != null) this.rightChild.recursion(target);
+                else {this.rightChild = target;target.parent = this;}
+            }
+        }
+
+        public void deleteFromTree() {
+            if (this.leftChild == null)
+                transplant(this.rightChild);
+            else if (this.rightChild == null)
+                transplant(this.leftChild);
+            else {
+                BinaryTree successor = successor();
+                if (successor.parent != this) {
+                    successor.transplant(successor.rightChild);
+                    successor.rightChild = this.rightChild;
+                    successor.rightChild.parent = successor;
+                }
+                transplant(successor);
+                successor.leftChild = this.leftChild;
+                successor.leftChild.parent = this;
+            }
+        }
+
+        public void transplant(BinaryTree target) {
+            if (this.parent == null) return;
+            else if (this.parent.leftChild == this)
+                this.parent.leftChild = target;
+            else this.parent.rightChild = target;
+            if (target != null)
+                target.parent = this.parent;
+        }
+
     }
 
 

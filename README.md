@@ -263,10 +263,23 @@
 
 ```java
 	print("BinaryTree:");
-  	Tree.BinaryTree root = new Tree.BinaryTree(-1);
-  	root.leftChild = new Tree.BinaryTree(10);
-  	root.rightChild = new Tree.BinaryTree(20);
-  	root.leftChild.leftChild = new Tree.BinaryTree(100;
-  	root.rightChild.rightChild = new Tree.BinaryTree(67);
- 	print(root.rightChild.allValue(false));
+  	Tree.BinaryTree root = new Tree.BinaryTree(100);
+ 	root.setLeftChild(new Tree.BinaryTree(50));
+ 	root.setRightChild(new Tree.BinaryTree(110));
+  	root.leftChild.setLeftChild(new Tree.BinaryTree(35));
+  	root.leftChild.leftChild.setRightChild(new Tree.BinaryTree(40));
+ 	root.leftChild.leftChild.rightChild.setLeftChild(new Tree.BinaryTree(37));
+	root.leftChild.leftChild.rightChild.setRightChild(new Tree.BinaryTree(45));
+	root.rightChild.setRightChild(new Tree.BinaryTree(150));
+	root.rightChild.setLeftChild(new Tree.BinaryTree(105));
+	print(root.allValue(true, Tree.BinaryTree.WalkType.inorder));
+	print(root.find(105).key);
+ 	print(root.maximum_Recursion().key);
+ 	print(root.rightChild.rightChild.predecessor().key);
+  	root.insert(new Tree.BinaryTree(60));
+  	root.insert_recursion(new Tree.BinaryTree(160));
+  	print(root.allValue(true, Tree.BinaryTree.WalkType.inorder));
+  	Tree.BinaryTree del = root.find(105);
+   	root.deleteFromTree();
+ 	print(del.allValue(true, Tree.BinaryTree.WalkType.inorder));
 ```
