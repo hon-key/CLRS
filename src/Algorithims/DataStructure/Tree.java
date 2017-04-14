@@ -181,7 +181,7 @@ public class Tree {
             return nodeParent;
         }
 
-        public void insert(BinaryTree target) throws Exception {
+        public BinaryTree insert(BinaryTree target) throws Exception {
             if (this.parent != nil()) throw new Exception("接受插入的节点不是Root节点。");
             BinaryTree leaf = nil();
             BinaryTree node = this;
@@ -195,6 +195,7 @@ public class Tree {
             if (target.key < leaf.key)
                 leaf.leftChild = target;
             else leaf.rightChild = target;
+            return this;
         }
         public void insert_recursion(BinaryTree target) throws Exception  {
             if (this.parent != nil()) throw new Exception("接受插入的节点不是Root节点。");
@@ -236,6 +237,12 @@ public class Tree {
             if (target != nil())
                 target.parent = this.parent;
         }
+        public BinaryTree getRoot() {
+            BinaryTree node = this;
+            while (node.parent != nil())
+                node = node.parent;
+            return node;
+        }
 
         protected BinaryTree nil() { return null;}
 
@@ -253,6 +260,7 @@ public class Tree {
 
         public RedBlackTree(int value) {
             super(value);
+            parent = rightChild = leftChild = nil();
         }
         private RedBlackTree(Color color,int value) {
             super(value);
@@ -289,21 +297,23 @@ public class Tree {
         }
 
         @Override
-        public void insert(BinaryTree target) throws Exception {
+        public BinaryTree insert(BinaryTree target) throws Exception {
             if (!(target instanceof RedBlackTree)) throw new Exception("接受参数只能是RedBlackTree.Node类型.");
             super.insert(target);
             target.leftChild = nil();
             target.rightChild = nil();
             ((RedBlackTree)target).color = Color.red;
-            insertFixUp((RedBlackTree)target);
+            return insertFixUp((RedBlackTree)target);
         }
-        private void insertFixUp(RedBlackTree target) {
+        private RedBlackTree insertFixUp(RedBlackTree target) {
             while (((RedBlackTree)target.parent).color == Color.red) {
                 if (target.parent == target.parent.parent.leftChild)
                     target = fixUp(target,true);
                 else target = fixUp(target,false);
             }
-            this.color = Color.black;
+            RedBlackTree root = (RedBlackTree)getRoot();
+            root.color = Color.black;
+            return root;
         }
 
         private RedBlackTree fixUp(RedBlackTree target,boolean isLeft)

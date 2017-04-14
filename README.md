@@ -121,7 +121,7 @@
  	{1,1,1,1}
  	};
 	int[][] strassen = SquareMatrixMultiply.multi(mA,mB);
- 	for (int i = 0; i < result.length; i++) {
+ 	for (int i = 0; i < strassen.length; i++) {
   		print(strassen[i]);
   	}
 ```
@@ -282,4 +282,19 @@
   	Tree.BinaryTree del = root.find(105);
    	root.deleteFromTree();
  	print(del.allValue(true, Tree.BinaryTree.WalkType.inorder));
+```
+
+**RedBlackTree**
+
+```java
+	print("RedBlackTree:");
+	Tree.RedBlackTree rbroot = new Tree.RedBlackTree(100);
+ 	rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(20));
+ 	rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(21));
+	rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(150));
+ 	rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(89));
+ 	rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(201));
+ 	rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(12));
+	rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(101));
+  	print(rbroot.allValue(true, Tree.BinaryTree.WalkType.inorder));
 ```

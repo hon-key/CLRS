@@ -213,6 +213,16 @@ public class Main {
         root.deleteFromTree();
         print(del.allValue(true, Tree.BinaryTree.WalkType.inorder));
 
+        print("RedBlackTree:");
+        Tree.RedBlackTree rbroot = new Tree.RedBlackTree(100);
+        rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(20));
+        rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(21));
+        rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(150));
+        rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(89));
+        rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(201));
+        rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(12));
+        rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(101));
+        print(rbroot.allValue(true, Tree.BinaryTree.WalkType.inorder));
 
     }
 }
