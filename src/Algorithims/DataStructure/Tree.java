@@ -22,7 +22,7 @@ public class Tree {
         public void setLeftChild(BinaryTree leftChild) throws Exception {
             int maxKey = this.key;
             BinaryTree firstRightAncestor = findFirstAncestor(AncestorType.rightAncestor);
-            int minKey = firstRightAncestor != null ? firstRightAncestor.key : Integer.MIN_VALUE;
+            int minKey = firstRightAncestor != nil() ? firstRightAncestor.key : Integer.MIN_VALUE;
             if (leftChild.key >= minKey && leftChild.key <= maxKey) {
                 this.leftChild = leftChild;
                 leftChild.parent = this;
@@ -31,7 +31,7 @@ public class Tree {
         public void setRightChild(BinaryTree rightChild) throws Exception {
             int minKey = this.key;
             BinaryTree firstLeftAncestor = findFirstAncestor(AncestorType.leftAncestor);
-            int maxKey = firstLeftAncestor != null ? firstLeftAncestor.key : Integer.MAX_VALUE;
+            int maxKey = firstLeftAncestor != nil() ? firstLeftAncestor.key : Integer.MAX_VALUE;
             if (rightChild.key >= minKey && rightChild.key <= maxKey) {
                 this.rightChild = rightChild;
                 rightChild.parent = this;
@@ -41,13 +41,13 @@ public class Tree {
         private BinaryTree findFirstAncestor(AncestorType type) {
             BinaryTree node = this.parent;
             BinaryTree preNode = this;
-            while (node != null) {
+            while (node != nil()) {
                 BinaryTree child = type == AncestorType.rightAncestor ? node.rightChild : node.leftChild;
                 if (child == preNode) return node;
                 preNode = node;
                 node = node.parent;
             }
-            return null;
+            return nil();
         }
 
         public enum WalkType {inorder,preorder,postorder}
@@ -71,8 +71,8 @@ public class Tree {
             while (stack.hasNext()) {
                 node = stack.pop();
                 assign(output,index,node.key);
-                if (node.rightChild != null) stack.push(node.rightChild);
-                if (node.leftChild != null) stack.push(node.leftChild);
+                if (node.rightChild != nil()) stack.push(node.rightChild);
+                if (node.leftChild != nil()) stack.push(node.leftChild);
             }
         }
         private void inOrder(int[] output,IntObject index) {
@@ -81,7 +81,7 @@ public class Tree {
             BinaryTree node = this;
             boolean isPoped = false;
             while (true) {
-                if (node.leftChild != null && isPoped == false)
+                if (node.leftChild != nil() && isPoped == false)
                 {
                     stack.push(node);
                     node = node.leftChild;
@@ -89,11 +89,11 @@ public class Tree {
                 else
                 {
                     assign(output,index,node.key);
-                    if (node.rightChild != null) {
+                    if (node.rightChild != nil()) {
                         node = node.rightChild; isPoped = false;
                     }else {
                         node = stack.pop();
-                        if (node == null) return;
+                        if (node == nil()) return;
                         isPoped = true;
                     }
                 }
@@ -102,9 +102,9 @@ public class Tree {
 
         private void traversal(int[] output, IntObject index, WalkType type) {
             if (type == WalkType.preorder) assign(output,index,key);
-            if (leftChild != null) leftChild.traversal(output, index, type);
+            if (leftChild != nil()) leftChild.traversal(output, index, type);
             if (type == WalkType.inorder) assign(output,index,key);
-            if (rightChild != null) rightChild.traversal(output, index, type);
+            if (rightChild != nil()) rightChild.traversal(output, index, type);
             if (type == WalkType.postorder) assign(output,index,key);
         }
         private void assign(int[] output,IntObject index,int value) {
@@ -114,22 +114,22 @@ public class Tree {
 
         public int count() {
             int count = 1;
-            if (leftChild != null) count += leftChild.count();
-            if (rightChild != null) count += rightChild.count();
+            if (leftChild != nil()) count += leftChild.count();
+            if (rightChild != nil()) count += rightChild.count();
             return count;
         }
 
         public BinaryTree find_Recursion(int key) {
             if (key == this.key) return this;
-            else if (key < this.key && this.leftChild != null)
+            else if (key < this.key && this.leftChild != nil())
                 return this.leftChild.find_Recursion(key);
-            else if (key > this.key && this.rightChild != null)
+            else if (key > this.key && this.rightChild != nil())
                 return this.rightChild.find_Recursion(key);
-            return null;
+            return nil();
         }
         public BinaryTree find(int key) {
             BinaryTree target = this;
-            while (target != null && key != target.key) {
+            while (target != nil() && key != target.key) {
                 if (key < target.key)
                     target = target.leftChild;
                 else target = target.rightChild;
@@ -138,32 +138,32 @@ public class Tree {
         }
         public BinaryTree minimum() {
             BinaryTree node = this;
-            while (node.leftChild != null)
+            while (node.leftChild != nil())
                 node = node.leftChild;
             return node;
         }
         public BinaryTree minimum_Recursion() {
             BinaryTree node = this;
-            if (node.leftChild != null) return node.leftChild.minimum_Recursion();
+            if (node.leftChild != nil()) return node.leftChild.minimum_Recursion();
             return node;
         }
         public BinaryTree maximum() {
             BinaryTree node = this;
-            while (node.rightChild != null)
+            while (node.rightChild != nil())
                 node = node.rightChild;
             return node;
         }
         public BinaryTree maximum_Recursion() {
             BinaryTree node = this;
-            if (node.rightChild != null) return node.rightChild.maximum_Recursion();
+            if (node.rightChild != nil()) return node.rightChild.maximum_Recursion();
             return node;
         }
         public BinaryTree successor() {
             BinaryTree node = this;
-            if (node.rightChild != null)
+            if (node.rightChild != nil())
                 return node.rightChild.minimum();
             BinaryTree nodeParent = node.parent;
-            while (nodeParent != null && node == nodeParent.rightChild) {
+            while (nodeParent != nil() && node == nodeParent.rightChild) {
                 node = nodeParent;
                 nodeParent = node.parent;
             }
@@ -171,10 +171,10 @@ public class Tree {
         }
         public BinaryTree predecessor() {
             BinaryTree node = this;
-            if (node.leftChild != null)
+            if (node.leftChild != nil())
                 return node.leftChild.maximum();
             BinaryTree nodeParent = node.parent;
-            while (nodeParent != null && node == nodeParent.leftChild) {
+            while (nodeParent != nil() && node == nodeParent.leftChild) {
                 node = nodeParent;
                 nodeParent = node.parent;
             }
@@ -182,10 +182,10 @@ public class Tree {
         }
 
         public void insert(BinaryTree target) throws Exception {
-            if (this.parent != null) throw new Exception("接受插入的节点不是Root节点。");
-            BinaryTree leaf = null;
+            if (this.parent != nil()) throw new Exception("接受插入的节点不是Root节点。");
+            BinaryTree leaf = nil();
             BinaryTree node = this;
-            while (node != null) {
+            while (node != nil()) {
                 leaf = node;
                 if (target.key < node.key)
                     node = node.leftChild;
@@ -197,23 +197,23 @@ public class Tree {
             else leaf.rightChild = target;
         }
         public void insert_recursion(BinaryTree target) throws Exception  {
-            if (this.parent != null) throw new Exception("接受插入的节点不是Root节点。");
+            if (this.parent != nil()) throw new Exception("接受插入的节点不是Root节点。");
             recursion(target);
         }
         private void recursion(BinaryTree target) {
             if (target.key <= this.key) {
-                if (this.leftChild != null) this.leftChild.recursion(target);
+                if (this.leftChild != nil()) this.leftChild.recursion(target);
                 else {this.leftChild = target;target.parent = this;}
             }else if ( target.key > this.key) {
-                if (this.rightChild != null) this.rightChild.recursion(target);
+                if (this.rightChild != nil()) this.rightChild.recursion(target);
                 else {this.rightChild = target;target.parent = this;}
             }
         }
 
         public void deleteFromTree() {
-            if (this.leftChild == null)
+            if (this.leftChild == nil())
                 transplant(this.rightChild);
-            else if (this.rightChild == null)
+            else if (this.rightChild == nil())
                 transplant(this.leftChild);
             else {
                 BinaryTree successor = successor();
@@ -229,13 +229,120 @@ public class Tree {
         }
 
         public void transplant(BinaryTree target) {
-            if (this.parent == null) return;
+            if (this.parent == nil()) return;
             else if (this.parent.leftChild == this)
                 this.parent.leftChild = target;
             else this.parent.rightChild = target;
-            if (target != null)
+            if (target != nil())
                 target.parent = this.parent;
         }
+
+        protected BinaryTree nil() { return null;}
+
+    }
+
+
+
+    public static class RedBlackTree extends BinaryTree {
+        public static final RedBlackTree nil = new RedBlackTree(Color.black,-1);
+
+        public enum Color {red,black}
+        private Color color;
+
+        public Color getColor() { return color;}
+
+        public RedBlackTree(int value) {
+            super(value);
+        }
+        private RedBlackTree(Color color,int value) {
+            super(value);
+            this.color = color;
+        }
+
+        public void leftRotate() {
+            if (this.rightChild == nil()) return;
+            RedBlackTree y = (RedBlackTree)this.rightChild;
+            this.rightChild = y.leftChild;
+            if (this.rightChild != nil())
+                this.rightChild.parent = this;
+            y.parent = this.parent;
+            if (this == this.parent.leftChild)
+                this.parent.leftChild = y;
+            else if (this == this.parent.rightChild)
+                this.parent.rightChild = y;
+            y.leftChild = this;
+            this.parent = y;
+        }
+        public void rightRotate() {
+            if (this.leftChild == nil()) return;
+            RedBlackTree y = (RedBlackTree)this.leftChild;
+            this.leftChild = y.rightChild;
+            if (this.leftChild != nil())
+                this.leftChild.parent = this;
+            y.parent = this.parent;
+            if (this == this.parent.leftChild)
+                this.parent.leftChild = y;
+            else if (this == this.parent.rightChild)
+                this.parent.rightChild = y;
+            y.rightChild = this;
+            this.parent = y;
+        }
+
+        @Override
+        public void insert(BinaryTree target) throws Exception {
+            if (!(target instanceof RedBlackTree)) throw new Exception("接受参数只能是RedBlackTree.Node类型.");
+            super.insert(target);
+            target.leftChild = nil();
+            target.rightChild = nil();
+            ((RedBlackTree)target).color = Color.red;
+            insertFixUp((RedBlackTree)target);
+        }
+        private void insertFixUp(RedBlackTree target) {
+            while (((RedBlackTree)target.parent).color == Color.red) {
+                if (target.parent == target.parent.parent.leftChild)
+                    target = fixUp(target,true);
+                else target = fixUp(target,false);
+            }
+            this.color = Color.black;
+        }
+
+        private RedBlackTree fixUp(RedBlackTree target,boolean isLeft)
+        {
+            RedBlackTree uncle = isLeft ?
+                    (RedBlackTree)target.parent.parent.rightChild:
+                    (RedBlackTree)target.parent.parent.leftChild;
+
+            if (uncle.color == Color.red) return condition1(target,uncle);
+
+            else if (target == (isLeft ? target.parent.rightChild : target.parent.leftChild))
+                target = condition2(target,isLeft);
+
+            condition3(target,isLeft);
+
+            return target;
+        }
+
+        private RedBlackTree condition1(RedBlackTree target,RedBlackTree uncle) {
+            ((RedBlackTree) target.parent).color = Color.black;
+            uncle.color = Color.black;
+            uncle.color = Color.red;
+            return (RedBlackTree) target.parent.parent;
+        }
+        private RedBlackTree condition2(RedBlackTree target,boolean isLeft) {
+            target = (RedBlackTree) target.parent;
+            if (isLeft) target.leftRotate();
+            else target.rightRotate();
+            return target;
+        }
+        private void condition3(RedBlackTree target,boolean isLeft) {
+            ((RedBlackTree) target.parent).color = Color.black;
+            ((RedBlackTree)target.parent.parent).color = Color.red;
+            if (isLeft) ((RedBlackTree) target.parent.parent).rightRotate();
+            else ((RedBlackTree) target.parent.parent).leftRotate();
+        }
+
+        @Override
+        protected BinaryTree nil() {return nil;}
 
     }
 
