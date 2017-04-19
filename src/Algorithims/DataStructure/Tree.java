@@ -351,6 +351,117 @@ public class Tree {
             else ((RedBlackTree) target.parent.parent).leftRotate();
         }
 
+
+
+        public void RB_transplant(RedBlackTree target) {
+            super.transplant(target);
+            target.parent = this.parent;
+        }
+
+        @Override
+        public void deleteFromTree() {
+            RedBlackTree y = this;
+            RedBlackTree x;
+            Color y_original_color = y.color;
+            if (this.leftChild == nil()) {
+                x = (RedBlackTree) this.rightChild;
+                this.RB_transplant(x);
+            }else if (this.rightChild == nil()) {
+                x = (RedBlackTree) this.leftChild;
+                this.RB_transplant(x);
+            }else {
+                y = (RedBlackTree) successor();
+                y_original_color = y.color;
+                x = (RedBlackTree) y.rightChild;
+                if (y.parent == this)
+                    x.parent = y;
+                else {
+                    y.RB_transplant(x);
+                    y.rightChild = this.rightChild;
+                    y.rightChild.parent = y;
+                }
+                this.RB_transplant(y);
+                y.leftChild = this.leftChild;
+                y.leftChild.parent = y;
+                y.color = this.color;
+            }
+            if (y_original_color == Color.black)
+                deleteFixUp(x);
+            this.parent = nil();
+            this.leftChild = nil();
+            this.rightChild = nil();
+        }
+
+        protected void deleteFixUp(RedBlackTree target)
+        {
+            RedBlackTree root = (RedBlackTree) getRoot();
+
+            while (target != root && target.color == Color.black) {
+
+                if (target == target.parent.leftChild)
+                    target = deleteFixUp(target,true);
+
+                else target = deleteFixUp(target,false);
+            }
+
+            target.color = Color.black;
+        }
+        private RedBlackTree deleteFixUp(RedBlackTree target,boolean isLeft)
+        {
+            RedBlackTree brother = isLeft ? (RedBlackTree) target.parent.rightChild :
+                                      (RedBlackTree) target.parent.leftChild;
+
+            if (brother.color == Color.red) brother = case1(target,brother,isLeft);
+
+            RedBlackTree brother_child1 = isLeft ? (RedBlackTree)brother.leftChild : (RedBlackTree)brother.rightChild;
+            RedBlackTree brother_child2 = isLeft ? (RedBlackTree)brother.rightChild : (RedBlackTree)brother.leftChild;
+
+            if (brother_child1.color == Color.black && brother_child2.color == Color.black)
+                return case2(target,brother);
+
+            if (brother_child2.color == Color.black) brother = case3(target,brother,isLeft);
+
+            return case4(target,brother,isLeft);
+        }
+        private RedBlackTree case1(RedBlackTree target,RedBlackTree brother,boolean isLeft) {
+            brother.color = Color.black;
+            ((RedBlackTree)target.parent).color = Color.red;
+            if (isLeft)
+                ((RedBlackTree) target.parent).leftRotate();
+            else ((RedBlackTree) target.parent).rightRotate();
+            brother = isLeft ? (RedBlackTree) target.parent.rightChild :
+                    (RedBlackTree) target.parent.leftChild;
+            return brother;
+        }
+        private RedBlackTree case2(RedBlackTree target,RedBlackTree brother) {
+            brother.color = Color.red;
+            target = (RedBlackTree) target.parent;
+            return target;
+        }
+        private RedBlackTree case3(RedBlackTree target,RedBlackTree brother,boolean isLeft) {
+            RedBlackTree brother_child1 = isLeft ? (RedBlackTree)brother.leftChild : (RedBlackTree)brother.rightChild;
+            brother_child1.color = Color.black;
+            brother.color = Color.red;
+            if (isLeft) brother.rightRotate();
+            else brother.leftRotate();
+            brother = isLeft ? (RedBlackTree) target.parent.rightChild :
+                    (RedBlackTree) target.parent.leftChild;
+            return brother;
+        }
+        private RedBlackTree case4(RedBlackTree target,RedBlackTree brother,boolean isLeft) {
+            brother.color = ((RedBlackTree)target.parent).color;
+            ((RedBlackTree) target.parent).color = Color.black;
+            if (isLeft){
+                ((RedBlackTree) brother.rightChild).color = Color.black;
+                ((RedBlackTree) target.parent).leftRotate();
+            }
+            else {
+                ((RedBlackTree) brother.leftChild).color = Color.black;
+                ((RedBlackTree) target.parent).rightRotate();
+            }
+            return (RedBlackTree) getRoot();
+        }
+
         @Override
         protected BinaryTree nil() {return nil;}
 
