@@ -297,4 +297,7 @@
  	rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(12));
 	rbroot = (Tree.RedBlackTree) rbroot.insert(new Tree.RedBlackTree(101));
   	print(rbroot.allValue(true, Tree.BinaryTree.WalkType.inorder));
+  	rbroot.find(201).deleteFromTree();
+  	rbroot.find(12).deleteFromTree();
+ 	print(rbroot.allValue(true, Tree.BinaryTree.WalkType.inorder));
 ```
