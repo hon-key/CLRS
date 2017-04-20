@@ -484,14 +484,15 @@ public class Tree {
         }
 
         public OrderStaticTree select(int i) throws Exception {
+            i++;
             if (this.size == 0)
-                throw new Exception("参数i =" + i + "超出了范围");
-            int r = ((OrderStaticTree)this.leftChild).size + 1 - 1;
+                throw new Exception("参数 " + i + " 超出了范围");
+            int r = ((OrderStaticTree)this.leftChild).size + 1;
             if (i == r)
                 return this;
             else if (i < r)
-                return ((OrderStaticTree) this.leftChild).select(i);
-            else return ((OrderStaticTree) this.rightChild).select(i);
+                return ((OrderStaticTree) this.leftChild).select(--i);
+            else return ((OrderStaticTree) this.rightChild).select((--i)-r);
         }
         public int rank() {
             int r = ((OrderStaticTree)this.leftChild).size + 1;

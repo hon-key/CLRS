@@ -240,6 +240,7 @@ public class Main {
         print(t.rank());
         t = (Tree.OrderStaticTree) OSRoot.find(1004);
         print(t.rank());
-
+        print(OSRoot.select(0).key);
+        print(OSRoot.select(10).key);
     }
 }
