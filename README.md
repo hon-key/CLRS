@@ -314,10 +314,8 @@
 	OSRoot = (Tree.OrderStaticTree) OSRoot.insert(new Tree.OrderStaticTree(50));
   	OSRoot = (Tree.OrderStaticTree) OSRoot.insert(new Tree.OrderStaticTree(44));
  	print(OSRoot.allValue(true, Tree.BinaryTree.WalkType.inorder));
- 	Tree.OrderStaticTree t = (Tree.OrderStaticTree) OSRoot.find(999);
- 	print(t.size);
- 	OSRoot.find(99).deleteFromTree();
- 	OSRoot.find(80).deleteFromTree();
- 	OSRoot.find(1004).deleteFromTree();
-  	print(t.size);
+ 	Tree.OrderStaticTree t = (Tree.OrderStaticTree) OSRoot.find(44);
+	print(t.rank());
+ 	t = (Tree.OrderStaticTree) OSRoot.find(1004);
+  	print(t.rank());
 ```
