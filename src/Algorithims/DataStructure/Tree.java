@@ -1,5 +1,9 @@
 package Algorithims.DataStructure;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
+
+import javax.print.attribute.standard.OrientationRequested;
+
 /**
  * Created by caihongji on 2017/3/29.
  * 数据结构 : 二叉树
@@ -254,7 +258,7 @@ public class Tree {
         public static final RedBlackTree nil = new RedBlackTree(Color.black,-1);
 
         public enum Color {red,black}
-        private Color color;
+        protected Color color;
 
         public Color getColor() { return color;}
 
@@ -262,7 +266,7 @@ public class Tree {
             super(value);
             parent = rightChild = leftChild = nil();
         }
-        private RedBlackTree(Color color,int value) {
+        protected RedBlackTree(Color color,int value) {
             super(value);
             this.color = color;
         }
@@ -297,6 +301,8 @@ public class Tree {
         }
 
         @Override
+        public void insert_recursion(BinaryTree target) throws Exception {return;}
+        @Override
         public BinaryTree insert(BinaryTree target) throws Exception {
             if (!(target instanceof RedBlackTree)) throw new Exception("接受参数只能是RedBlackTree.Node类型.");
             super.insert(target);
@@ -305,7 +311,7 @@ public class Tree {
             ((RedBlackTree)target).color = Color.red;
             return insertFixUp((RedBlackTree)target);
         }
-        private RedBlackTree insertFixUp(RedBlackTree target) {
+        protected RedBlackTree insertFixUp(RedBlackTree target) {
             while (((RedBlackTree)target.parent).color == Color.red) {
                 if (target.parent == target.parent.parent.leftChild)
                     target = fixUp(target,true);
@@ -335,7 +341,7 @@ public class Tree {
         private RedBlackTree condition1(RedBlackTree target,RedBlackTree uncle) {
             ((RedBlackTree) target.parent).color = Color.black;
             uncle.color = Color.black;
-            uncle.color = Color.red;
+            ((RedBlackTree)uncle.parent).color = Color.red;
             return (RedBlackTree) target.parent.parent;
         }
         private RedBlackTree condition2(RedBlackTree target,boolean isLeft) {
@@ -465,6 +471,132 @@ public class Tree {
         @Override
         protected BinaryTree nil() {return nil;}
 
+    }
+
+    public static class OrderStaticTree extends RedBlackTree {
+        public static final OrderStaticTree nil = new OrderStaticTree(-1,0);
+        public int size;
+        public OrderStaticTree(int value) {
+            super(value); size = 1;
+        }
+        private OrderStaticTree(int value,int size) {
+            super(Color.black,value); this.size = size;
+        }
+
+        public OrderStaticTree select(int i) throws Exception {
+            if (this.size == 0)
+                throw new Exception("参数i =" + i + "超出了范围");
+            int r = ((OrderStaticTree)this.leftChild).size + 1 - 1;
+            if (i == r)
+                return this;
+            else if (i < r)
+                return ((OrderStaticTree) this.leftChild).select(i);
+            else return ((OrderStaticTree) this.rightChild).select(i);
+        }
+        public int rank() {
+            int r = ((OrderStaticTree)this.leftChild).size + 1;
+            OrderStaticTree y = this;
+            OrderStaticTree root = (OrderStaticTree) getRoot();
+            while (y != root) {
+                if (y == y.parent.rightChild)
+                    r = r + ((OrderStaticTree)y.parent.leftChild).size + 1;
+                y = (OrderStaticTree) y.parent;
+            }
+            return r;
+        }
+
+        @Override
+        public BinaryTree insert(BinaryTree target) throws Exception {
+            if (!(target instanceof OrderStaticTree)) throw new Exception("接受参数只能是OrderStaticTree类型.");
+            insert_OrderStaticTreeVersion((OrderStaticTree) target);
+            target.leftChild = nil();
+            target.rightChild = nil();
+            ((OrderStaticTree)target).color = Color.red;
+            ((OrderStaticTree) target).size = 1;
+            return insertFixUp((RedBlackTree)target);
+        }
+
+        private OrderStaticTree insert_OrderStaticTreeVersion(OrderStaticTree target) throws Exception {
+            if (this.parent != nil()) throw new Exception("接受插入的节点不是Root节点。");
+            OrderStaticTree leaf = (OrderStaticTree) nil();
+            OrderStaticTree node = this;
+            while (node != nil()) {
+                leaf = node;
+                node.size++;
+                if (target.key < node.key)
+                    node = (OrderStaticTree) node.leftChild;
+                else node = (OrderStaticTree) node.rightChild;
+            }
+            target.parent = leaf;
+            if (target.key < leaf.key)
+                leaf.leftChild = target;
+            else leaf.rightChild = target;
+            return this;
+        }
+        @Override
+        public void leftRotate() {
+            OrderStaticTree x = this;
+            super.leftRotate();
+            ((OrderStaticTree)this.parent).size = this.size;
+            this.size = ((OrderStaticTree)this.leftChild).size +
+                    ((OrderStaticTree) this.rightChild).size + 1;
+        }
+        @Override
+        public void rightRotate() {
+            super.rightRotate();
+            ((OrderStaticTree)this.parent).size = this.size;
+            this.size = ((OrderStaticTree) this.leftChild).size +
+                    ((OrderStaticTree)this.rightChild).size + 1;
+        }
+
+        @Override
+        public void deleteFromTree() {
+            RedBlackTree y = this;
+            RedBlackTree x;
+            Color y_original_color = y.color;
+            if (this.leftChild == nil()) {
+                x = (RedBlackTree) this.rightChild;
+                sizeDecreaseUpToRoot((OrderStaticTree) y);
+                this.RB_transplant(x);
+            }else if (this.rightChild == nil()) {
+                x = (RedBlackTree) this.leftChild;
+                sizeDecreaseUpToRoot((OrderStaticTree) y);
+                this.RB_transplant(x);
+            }else {
+                y = (RedBlackTree) successor();
+                y_original_color = y.color;
+                x = (RedBlackTree) y.rightChild;
+                sizeDecreaseUpToRoot((OrderStaticTree) y);
+                if (y.parent == this)
+                    x.parent = y;
+                else {
+                    y.RB_transplant(x);
+                    y.rightChild = this.rightChild;
+                    y.rightChild.parent = y;
+                }
+                this.RB_transplant(y);
+                y.leftChild = this.leftChild;
+                y.leftChild.parent = y;
+                y.color = this.color;
+                ((OrderStaticTree)y).size = this.size;
+            }
+            if (y_original_color == Color.black)
+                deleteFixUp(x);
+            this.parent = nil();
+            this.leftChild = nil();
+            this.rightChild = nil();
+        }
+
+        private void sizeDecreaseUpToRoot(OrderStaticTree target) {
+            if (target == nil()) return;
+            while (target != nil()) {
+                target.size--;
+                target = (OrderStaticTree) target.parent;
+            }
+        }
+
+        @Override
+        protected BinaryTree nil() { return nil;}
     }
 
 

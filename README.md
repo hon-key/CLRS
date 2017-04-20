@@ -301,3 +301,23 @@
   	rbroot.find(12).deleteFromTree();
  	print(rbroot.allValue(true, Tree.BinaryTree.WalkType.inorder));
 ```
+
+**OrderStaticTree**
+
+```java
+	print("OrderStaticTree:");
+  	Tree.OrderStaticTree OSRoot = new Tree.OrderStaticTree(999);
+  	OSRoot = (Tree.OrderStaticTree) OSRoot.insert(new Tree.OrderStaticTree(80));
+  	OSRoot = (Tree.OrderStaticTree) OSRoot.insert(new Tree.OrderStaticTree(1004));
+  	OSRoot = (Tree.OrderStaticTree) OSRoot.insert(new Tree.OrderStaticTree(99));
+ 	OSRoot = (Tree.OrderStaticTree) OSRoot.insert(new Tree.OrderStaticTree(200));
+	OSRoot = (Tree.OrderStaticTree) OSRoot.insert(new Tree.OrderStaticTree(50));
+  	OSRoot = (Tree.OrderStaticTree) OSRoot.insert(new Tree.OrderStaticTree(44));
+ 	print(OSRoot.allValue(true, Tree.BinaryTree.WalkType.inorder));
+ 	Tree.OrderStaticTree t = (Tree.OrderStaticTree) OSRoot.find(999);
+ 	print(t.size);
+ 	OSRoot.find(99).deleteFromTree();
+ 	OSRoot.find(80).deleteFromTree();
+ 	OSRoot.find(1004).deleteFromTree();
+  	print(t.size);
+```
