@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33f63a26-04f3-4f97-b08b-3ce67597bad7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithims/DataStructure/Tree.java" afterPath="$PROJECT_DIR$/src/Algorithims/DataStructure/Tree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/prsonal/caihongji/Main.java" afterPath="$PROJECT_DIR$/src/prsonal/caihongji/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithims/MergeSort.java" afterPath="$PROJECT_DIR$/src/Algorithims/MergeSort.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/prsonal/caihongji/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="244" column="5" lean-forward="true" selection-start-line="244" selection-start-column="5" selection-end-line="244" selection-end-column="5" />
+            <state relative-caret-position="357">
+              <caret line="58" column="35" lean-forward="true" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -38,13 +36,23 @@
       <file leaf-file-name="Tree.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Algorithims/DataStructure/Tree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="486" column="13" lean-forward="false" selection-start-line="486" selection-start-column="13" selection-end-line="494" selection-end-column="76" />
+            <state relative-caret-position="202">
+              <caret line="485" column="31" lean-forward="false" selection-start-line="485" selection-start-column="31" selection-end-line="485" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#584#585#0" expanded="true" />
                 <element signature="e#624#625#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MergeSort.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Algorithims/MergeSort.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -92,7 +100,6 @@
         <option value="$PROJECT_DIR$/src/Algorithims/LineQuery.java" />
         <option value="$PROJECT_DIR$/src/Algorithims/BubbleSort.java" />
         <option value="$PROJECT_DIR$/src/Algorithims/Horner.java" />
-        <option value="$PROJECT_DIR$/src/Algorithims/MergeSort.java" />
         <option value="$PROJECT_DIR$/src/Algorithims/FindMaximumSubArray.java" />
         <option value="$PROJECT_DIR$/src/Algorithims/SquareMatrixMultiply.java" />
         <option value="$PROJECT_DIR$/src/Algorithims/HireAssistant.java" />
@@ -109,6 +116,7 @@
         <option value="$PROJECT_DIR$/src/Algorithims/RadixSort.java" />
         <option value="$PROJECT_DIR$/src/Algorithims/DataStructure/Tree.java" />
         <option value="$PROJECT_DIR$/src/prsonal/caihongji/Main.java" />
+        <option value="$PROJECT_DIR$/src/Algorithims/MergeSort.java" />
       </list>
     </option>
   </component>
@@ -907,14 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Algorithims/MergeSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Algorithims/InsertionSort.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -941,8 +941,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Algorithims/DataStructure/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="486" column="13" lean-forward="false" selection-start-line="486" selection-start-column="13" selection-end-line="494" selection-end-column="76" />
+        <state relative-caret-position="202">
+          <caret line="485" column="31" lean-forward="false" selection-start-line="485" selection-start-column="31" selection-end-line="485" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#584#585#0" expanded="true" />
@@ -953,11 +953,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/prsonal/caihongji/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="244" column="5" lean-forward="true" selection-start-line="244" selection-start-column="5" selection-end-line="244" selection-end-column="5" />
+        <state relative-caret-position="357">
+          <caret line="58" column="35" lean-forward="true" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Algorithims/MergeSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -37,7 +37,7 @@ public class MergeSort {
             }
             else {
                 A[k] = seq2[j]; j++;
-                if (seq[i] != Integer.MAX_VALUE) inversion += seq1.length - i;
+                if (seq1[i] != Integer.MAX_VALUE) inversion += seq1.length - i;
             }
         }
     }
