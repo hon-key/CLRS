@@ -6,6 +6,10 @@ import Algorithims.DataStructure.LinkList;
 import Algorithims.DataStructure.Queue;
 import Algorithims.DataStructure.Stack;
 import Algorithims.DataStructure.Tree;
+import Algorithims.DynamicProgramming.CutRod;
+import CHKMath.CholeskyDecomposition;
+import CHKMath.DataStructure.Matrix;
+import CHKMath.GaussianElimination;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -241,6 +245,36 @@ public class Main {
         t = (Tree.OrderStaticTree) OSRoot.find(1004);
         print(t.rank());
         print(OSRoot.select(0).key);
-        print(OSRoot.select(10).key);
+        print(OSRoot.select(6).key);
+
+
+        print("CutRod:");
+        int[] price = {1,5,8,9,10,17,17,20,24,30};
+        print(CutRod.cut(price,10));
+        print(CutRod.cut_memoized(price,10));
+        print(CutRod.cut_bottom_up(price,10));
+
+        System.out.println(997.0/1000.0);
+
+        print("Gauss:");
+        double[][] Gauss_R = {
+                {1,4,7},
+                {2,5,8},
+                {3,6,10}
+        };
+        Matrix Gauss_A = Matrix.create(Gauss_R);
+        Gauss_A = GaussianElimination.Eliminate(Gauss_A);
+        Gauss_A.print();
+
+        print("Cholesky:");
+        double[][] Cholesky_R = {
+                {4,-2,4,2},
+                {-2,10,-2,-7},
+                {4,-2,8,4},
+                {2,-7,4,7}
+        };
+        Matrix Cholesky_A = Matrix.create(Cholesky_R);
+        Cholesky_A = CholeskyDecomposition.Eliminate(Cholesky_A);
+        Cholesky_A.print();
     }
 }
