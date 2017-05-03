@@ -9,7 +9,10 @@ import Algorithims.DataStructure.Tree;
 import Algorithims.DynamicProgramming.CutRod;
 import CHKMath.CholeskyDecomposition;
 import CHKMath.DataStructure.Matrix;
+import CHKMath.DataStructure.Vector;
 import CHKMath.GaussianElimination;
+import CHKMath.Householder;
+import CHKMath.QRDecomposition;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -276,5 +279,19 @@ public class Main {
         Matrix Cholesky_A = Matrix.create(Cholesky_R);
         Cholesky_A = CholeskyDecomposition.Eliminate(Cholesky_A);
         Cholesky_A.print();
+
+        print("QR:");
+        double[][] QR_A = {
+                {4,-2,4,2},
+                {-2,10,-2,-7},
+                {4,-2,8,4},
+                {2,-7,4,7},
+                {8,-5,3,13}
+        };
+        Matrix QR_M = Matrix.create(QR_A);
+        Householder.House[] houses = QRDecomposition.decompose(QR_M);
+        QR_M.print();
+
+
     }
 }

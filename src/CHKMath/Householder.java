@@ -17,9 +17,8 @@ public class Householder {
         }
         public Matrix H() {
             Matrix H = Matrix.createI(v.length());
-            double[][] raw = new double[v.length()][v.length()];
-            for (int i = 0; i <= raw.length-1; i++)
-                for (int j = 0; j <= raw[0].length-1; j++)
+            for (int i = 0; i <= H.row()-1; i++)
+                for (int j = 0; j <= H.col()-1; j++)
                     H.set(i,j,
                             H.get(i,j) - β * v.get(i) * v.get(j)
                     );
@@ -41,8 +40,8 @@ public class Householder {
         else
         {
             setV1(house,x,σ);
-            double v1 = house.v.get(1);
-            house.β = (2 * v1 * v1) / (σ + v1 * v1);
+            double v1 = house.v.get(0);
+            house.β = (2.0 * v1 * v1) / (σ  + v1 * v1);
             house.v.div(v1);
         }
         return house;
@@ -52,10 +51,10 @@ public class Householder {
         x.div(in);
     }
     private static double getσ (Vector x) {
-        int sig = 0;
+        double sig = 0;
         for (int i = 1; i <= x.length() - 1; i++) {
             double xi = x.get(i);
-            sig += xi * xi;
+            sig += (xi * xi);
         }
         return sig;
     }
@@ -67,14 +66,14 @@ public class Householder {
             );
     }
     private static void setV1(House house,Vector x,double σ) {
-        double x1 = x.get(1);
+        double x1 = x.get(0);
         double α = Math.sqrt(x1 * x1 + σ);
         if (x1 <= 0)
-            house.v.set(1,
+            house.v.set(0,
                     x1 - α
             );
         else
-            house.v.set(1,
+            house.v.set(0,
                     (-σ) / (x1 + α)
             );
     }

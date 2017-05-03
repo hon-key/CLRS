@@ -89,6 +89,28 @@ public class Matrix {
             vec.set(i,raw[x][y.r1 + i]);
         return vec;
     }
+    public Matrix subMatrix(Range x,Range y) {
+        double[][] newRaw = new double[x.num()][y.num()];
+        for (int i = 0; i <= x.num() - 1; i++) {
+            for (int j = 0; j <= y.num() - 1; j++)
+                newRaw[i][j] = raw[i+x.r1][j+y.r1];
+        }
+        return Matrix.create(newRaw);
+    }
+    public Matrix x(Matrix target) throws Exception {
+        if (target.row() != this.col())
+            throw  new Exception("矩阵A的列："+ this.col() + " 矩阵B的行：" + target.row() + " 不一致");
+        double newRaw[][] = new double[this.row()][target.col()];
+        for (int i = 0; i <= newRaw.length-1; i++) {
+            for (int j = 0; j <= newRaw[0].length-1; j++) {
+                double val = 0;
+                for (int k = 0; k <= this.col()-1; k++)
+                    val += this.get(i,k) * target.get(k,j);
+                newRaw[i][j] = val;
+            }
+        }
+        return Matrix.create(newRaw);
+    }
 
     public void print() {
         for (double[] row : raw) System.out.println(Arrays.toString(row));
