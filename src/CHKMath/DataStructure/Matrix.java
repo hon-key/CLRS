@@ -1,8 +1,8 @@
 package CHKMath.DataStructure;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * Created by caihongji on 2017/4/26.
@@ -26,12 +26,16 @@ public class Matrix {
     }
     public double get(int i, int j) { return raw[i][j];}
     public void set(int i, int j, double val) { raw[i][j] = val; }
-    // 方阵的阶数
+    // 方阵的阶数，为提高可读性
     public int n() {
         if (isSquareMatrix())
             return raw.length;
         return -1;
     }
+    // 矩阵行列数
+    public int row() {return raw.length;}
+    public int col() {return raw[0].length;}
+
     public boolean isSquareMatrix() {
         if (raw.length != raw[0].length) return false;
         return true;
@@ -59,6 +63,31 @@ public class Matrix {
             raw[i][c1] = raw[i][c2];
             raw[i][c2] = tmp;
         }
+    }
+
+    public static class Range {
+        int r1,r2;
+        private Range() {}
+        public static Range c(int r1,int r2) {
+            Range r = new Range();
+            r.r1 = r1;r.r2 = r2;
+            return r;
+        }
+        public int num() {return r2 - r1 + 1;};
+    }
+    public Vector subVector(Range x,int y) {
+        int n = x.num();
+        Vector vec = Vector.create(n);
+        for (int i = 0;i <= n-1; i++)
+            vec.set(i,raw[x.r1 + i][y]);
+        return vec;
+    }
+    public Vector subVector(int x,Range y) {
+        int n = y.num();
+        Vector vec = Vector.create(n);
+        for (int i = 0;i <= n-1; i++)
+            vec.set(i,raw[x][y.r1 + i]);
+        return vec;
     }
 
     public void print() {
