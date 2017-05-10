@@ -321,3 +321,62 @@
   	print(OSRoot.select(0).key);
   	print(OSRoot.select(10).key);
 ```
+
+**CutRod**
+
+```java
+ 	print("CutRod:");
+ 	int[] price = {1,5,8,9,10,17,17,20,24,30};
+	print(CutRod.cut(price,10));
+	CutRod.cut_memoized(price,7).printSolution();
+ 	CutRod.cut_bottom_up(price,7).printSolution();
+ 	System.out.println(997.0/1000.0);
+```
+
+**Gauss and Cholesky and QR**
+
+```java
+	print("Gauss:");
+ 	double[][] Gauss_R = {
+    	{1,4,7},
+  		{2,5,8},
+   		{3,6,10}
+	};
+ 	Matrix Gauss_A = Matrix.create(Gauss_R);
+  	Gauss_A = GaussianElimination.Eliminate(Gauss_A);
+  	Gauss_A.print();
+	
+	print("Cholesky:");
+ 	double[][] Cholesky_R = {
+   		{4,-2,4,2},
+    	{-2,10,-2,-7},
+      	{4,-2,8,4},
+    	{2,-7,4,7}
+	};
+  	Matrix Cholesky_A = Matrix.create(Cholesky_R);
+ 	Cholesky_A = CholeskyFactorization.Eliminate(Cholesky_A);
+ 	Cholesky_A.print();
+
+	print("QR:");
+	double[][] QR_A = {
+  		{4,-2,4,2},
+     	{-2,10,-2,-7},
+    	{4,-2,8,4},
+ 		{2,-7,4,7},
+     	{8,-5,3,13}
+  	};
+   	Matrix QR_M = Matrix.create(QR_A);
+	Householder.House[] houses = QRDecomposition.decompose(QR_M);
+   	QR_M.print();
+```
+
+**MatrixChainOrder**
+
+```java
+  	MatrixChainOrder.Result re = MatrixChainOrder.cal(30,35,15,5,10,20,25);
+  	re.printOptimalParens(1,re.n);
+ 	print(re.m.get(2,5));
+  	MatrixChainOrder.Result re2 = MatrixChainOrder.memoizedCal(30,35,15,5,10,20,25);
+  	re2.printOptimalParens(1,re2.n);
+  	print(re2.m.get(2,5));
+```

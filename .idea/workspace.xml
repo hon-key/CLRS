@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33f63a26-04f3-4f97-b08b-3ce67597bad7" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CLRS/CHKMath/CholeskyDecomposition.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/CHKMath/CholeskyDecomposition.java" afterPath="$PROJECT_DIR$/src/CHKMath/CholeskyFactorization.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CLRS/Algorithims/DynamicProgramming/CutRod.class" afterPath="$PROJECT_DIR$/out/production/CLRS/Algorithims/DynamicProgramming/CutRod.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CLRS/prsonal/caihongji/Main.class" afterPath="$PROJECT_DIR$/out/production/CLRS/prsonal/caihongji/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithims/DynamicProgramming/CutRod.java" afterPath="$PROJECT_DIR$/src/Algorithims/DynamicProgramming/CutRod.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/prsonal/caihongji/Main.java" afterPath="$PROJECT_DIR$/src/prsonal/caihongji/Main.java" />
-    </list>
+    <list default="true" id="33f63a26-04f3-4f97-b08b-3ce67597bad7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/prsonal/caihongji/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4794">
-              <caret line="299" column="24" lean-forward="false" selection-start-line="299" selection-start-column="14" selection-end-line="299" selection-end-column="24" />
+            <state relative-caret-position="731">
+              <caret line="299" column="30" lean-forward="true" selection-start-line="253" selection-start-column="7" selection-end-line="299" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -43,7 +35,7 @@
       <file leaf-file-name="CutRod.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Algorithims/DynamicProgramming/CutRod.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1445">
+            <state relative-caret-position="765">
               <caret line="86" column="18" lean-forward="false" selection-start-line="86" selection-start-column="18" selection-end-line="86" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -74,7 +66,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MatrixChainOrder.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MatrixChainOrder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Algorithims/DynamicProgramming/MatrixChainOrder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
@@ -825,6 +817,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -856,6 +849,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+          <folding>
+            <element signature="e#871#872#0" expanded="false" />
+            <element signature="e#906#907#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -863,6 +860,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="13" column="19" lean-forward="false" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -878,6 +878,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1445">
           <caret line="488" column="0" lean-forward="false" selection-start-line="488" selection-start-column="0" selection-end-line="488" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -990,9 +991,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Algorithims/DynamicProgramming/MatrixChainOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="63" column="31" lean-forward="true" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Algorithims/DynamicProgramming/CutRod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
+        <state relative-caret-position="765">
           <caret line="86" column="18" lean-forward="false" selection-start-line="86" selection-start-column="18" selection-end-line="86" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1002,19 +1013,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/prsonal/caihongji/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4794">
-          <caret line="299" column="24" lean-forward="false" selection-start-line="299" selection-start-column="14" selection-end-line="299" selection-end-column="24" />
+        <state relative-caret-position="731">
+          <caret line="299" column="30" lean-forward="true" selection-start-line="253" selection-start-column="7" selection-end-line="299" selection-end-column="30" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Algorithims/DynamicProgramming/MatrixChainOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="63" column="31" lean-forward="true" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
