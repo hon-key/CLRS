@@ -6,7 +6,7 @@ import CHKMath.DataStructure.*;
  * Created by caihongji on 2017/4/26.
  * 算法：Cholesky 分解
  */
-public class CholeskyDecomposition {
+public class CholeskyFactorization {
     /*
      * Cholesky 分解
      */

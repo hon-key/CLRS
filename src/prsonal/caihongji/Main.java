@@ -7,9 +7,9 @@ import Algorithims.DataStructure.Queue;
 import Algorithims.DataStructure.Stack;
 import Algorithims.DataStructure.Tree;
 import Algorithims.DynamicProgramming.CutRod;
-import CHKMath.CholeskyDecomposition;
+import Algorithims.DynamicProgramming.MatrixChainOrder;
+import CHKMath.CholeskyFactorization;
 import CHKMath.DataStructure.Matrix;
-import CHKMath.DataStructure.Vector;
 import CHKMath.GaussianElimination;
 import CHKMath.Householder;
 import CHKMath.QRDecomposition;
@@ -254,8 +254,8 @@ public class Main {
         print("CutRod:");
         int[] price = {1,5,8,9,10,17,17,20,24,30};
         print(CutRod.cut(price,10));
-        print(CutRod.cut_memoized(price,10));
-        print(CutRod.cut_bottom_up(price,10));
+        CutRod.cut_memoized(price,7).printSolution();
+        CutRod.cut_bottom_up(price,7).printSolution();
 
         System.out.println(997.0/1000.0);
 
@@ -277,7 +277,7 @@ public class Main {
                 {2,-7,4,7}
         };
         Matrix Cholesky_A = Matrix.create(Cholesky_R);
-        Cholesky_A = CholeskyDecomposition.Eliminate(Cholesky_A);
+        Cholesky_A = CholeskyFactorization.Eliminate(Cholesky_A);
         Cholesky_A.print();
 
         print("QR:");
@@ -292,6 +292,11 @@ public class Main {
         Householder.House[] houses = QRDecomposition.decompose(QR_M);
         QR_M.print();
 
-
+        MatrixChainOrder.Result re = MatrixChainOrder.cal(30,35,15,5,10,20,25);
+        re.printOptimalParens(1,re.n);
+        print(re.m.get(2,5));
+        MatrixChainOrder.Result re2 = MatrixChainOrder.memoizedCal(30,35,15,5,10,20,25);
+        re2.printOptimalParens(1,re2.n);
+        print(re2.m.get(2,5));
     }
 }
