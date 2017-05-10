@@ -7,12 +7,14 @@ import Algorithims.DataStructure.Queue;
 import Algorithims.DataStructure.Stack;
 import Algorithims.DataStructure.Tree;
 import Algorithims.DynamicProgramming.CutRod;
+import Algorithims.DynamicProgramming.LCS;
 import Algorithims.DynamicProgramming.MatrixChainOrder;
 import CHKMath.CholeskyFactorization;
 import CHKMath.DataStructure.Matrix;
 import CHKMath.GaussianElimination;
 import CHKMath.Householder;
 import CHKMath.QRDecomposition;
+import com.sun.xml.internal.ws.server.provider.ProviderInvokerTube;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -292,11 +294,18 @@ public class Main {
         Householder.House[] houses = QRDecomposition.decompose(QR_M);
         QR_M.print();
 
+        print("MatrixChainOrder:");
         MatrixChainOrder.Result re = MatrixChainOrder.cal(30,35,15,5,10,20,25);
         re.printOptimalParens(1,re.n);
         print(re.m.get(2,5));
         MatrixChainOrder.Result re2 = MatrixChainOrder.memoizedCal(30,35,15,5,10,20,25);
         re2.printOptimalParens(1,re2.n);
         print(re2.m.get(2,5));
+
+        print("LCS:");
+        String[] LCS_X = {"A","B","C","B","D","A","B"};
+        String[] LCS_Y = {"B","D","C","A","B","A"};
+        LCS.Result LCS_re = LCS.getLCS(LCS_X,LCS_Y);
+        LCS_re.printLCS();
     }
 }

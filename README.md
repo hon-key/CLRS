@@ -380,3 +380,13 @@
   	re2.printOptimalParens(1,re2.n);
   	print(re2.m.get(2,5));
 ```
+
+**LCS**
+
+```java
+	print("LCS:");
+ 	String[] LCS_X = {"A","B","C","B","D","A","B"};
+  	String[] LCS_Y = {"B","D","C","A","B","A"};
+	LCS.Result LCS_re = LCS.getLCS(LCS_X,LCS_Y);
+  	LCS_re.printLCS();
+```
