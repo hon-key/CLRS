@@ -303,9 +303,12 @@ public class Main {
         print(re2.m.get(2,5));
 
         print("LCS:");
-        String[] LCS_X = {"A","B","C","B","D","A","B"};
-        String[] LCS_Y = {"B","D","C","A","B","A"};
+        String[] LCS_X = {"1","0","0","1","0","1","0","1"};
+        String[] LCS_Y = {"0","1","0","1","1","0","1","1","0"};
         LCS.Result LCS_re = LCS.getLCS(LCS_X,LCS_Y);
         LCS_re.printLCS();
+        LCS_re.printLCS_Nob();
+        LCS.Result LCS_re2 = LCS.getLCS_Backup(LCS_X,LCS_Y);
+        LCS_re2.printLCS();
     }
 }

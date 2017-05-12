@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33f63a26-04f3-4f97-b08b-3ce67597bad7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Algorithims/DynamicProgramming/LCS.java" afterPath="$PROJECT_DIR$/src/Algorithims/DynamicProgramming/LCS.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/prsonal/caihongji/Main.java" afterPath="$PROJECT_DIR$/src/prsonal/caihongji/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -27,8 +29,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/prsonal/caihongji/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="304" column="8" lean-forward="true" selection-start-line="304" selection-start-column="8" selection-end-line="308" selection-end-column="26" />
+            <state relative-caret-position="538">
+              <caret line="314" column="0" lean-forward="true" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -37,7 +39,7 @@
       <file leaf-file-name="CutRod.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Algorithims/DynamicProgramming/CutRod.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
+            <state relative-caret-position="1122">
               <caret line="86" column="18" lean-forward="false" selection-start-line="86" selection-start-column="18" selection-end-line="86" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -62,7 +64,8 @@
             <state relative-caret-position="1615">
               <caret line="96" column="9" lean-forward="false" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#3553#3554#0" expanded="false" />
+                <element signature="e#3634#3635#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -83,12 +86,9 @@
       <file leaf-file-name="LCS.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Algorithims/DynamicProgramming/LCS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="962">
-              <caret line="61" column="18" lean-forward="true" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
-              <folding>
-                <element signature="e#562#563#0" expanded="true" />
-                <element signature="e#610#611#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="589">
+              <caret line="102" column="30" lean-forward="false" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,8 +156,8 @@
         <option value="$PROJECT_DIR$/src/Algorithims/DynamicProgramming/CutRod.java" />
         <option value="$PROJECT_DIR$/src/Algorithims/DynamicProgramming/MatrixChanOrder.java" />
         <option value="$PROJECT_DIR$/src/Algorithims/DynamicProgramming/MatrixChainOrder.java" />
-        <option value="$PROJECT_DIR$/src/Algorithims/DynamicProgramming/LCS.java" />
         <option value="$PROJECT_DIR$/src/prsonal/caihongji/Main.java" />
+        <option value="$PROJECT_DIR$/src/Algorithims/DynamicProgramming/LCS.java" />
       </list>
     </option>
   </component>
@@ -986,7 +986,8 @@
         <state relative-caret-position="1615">
           <caret line="96" column="9" lean-forward="false" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3553#3554#0" expanded="false" />
+            <element signature="e#3634#3635#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -996,16 +997,6 @@
         <state relative-caret-position="2142">
           <caret line="126" column="19" lean-forward="false" selection-start-line="126" selection-start-column="19" selection-end-line="126" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Algorithims/DynamicProgramming/CutRod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="86" column="18" lean-forward="false" selection-start-line="86" selection-start-column="18" selection-end-line="86" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1019,21 +1010,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Algorithims/DynamicProgramming/CutRod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="86" column="18" lean-forward="false" selection-start-line="86" selection-start-column="18" selection-end-line="86" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Algorithims/DynamicProgramming/LCS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="962">
-          <caret line="61" column="18" lean-forward="true" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
-          <folding>
-            <element signature="e#562#563#0" expanded="true" />
-            <element signature="e#610#611#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="589">
+          <caret line="102" column="30" lean-forward="false" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/prsonal/caihongji/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="304" column="8" lean-forward="true" selection-start-line="304" selection-start-column="8" selection-end-line="308" selection-end-column="26" />
+        <state relative-caret-position="538">
+          <caret line="314" column="0" lean-forward="true" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -18,6 +18,7 @@ public class LCS {
         private String[] X,Y;
         public void printLCS() {
             print(X.length,Y.length);
+            System.out.print("\n");
         }
         private void print(int i,int j) {
             if (i==0 || j ==0) return;
@@ -29,6 +30,20 @@ public class LCS {
                 print(i-1,j);
             else
                 print(i,j-1);
+        }
+        public void printLCS_Nob() {
+            printWithNob(X.length,Y.length);
+            System.out.print("\n");
+        }
+        private void printWithNob(int i,int j) {
+            if (i == 0 || j == 0) return;
+            if (X[i-1] == Y[j-1]) {
+                printWithNob(i - 1, j - 1);
+                System.out.print(X[i-1]);
+            }else if (c.get(i-1,j) >= c.get(i,j-1))
+                printWithNob(i-1,j);
+            else
+                printWithNob(i,j-1);
         }
     }
     public static final int TOP = 1;
@@ -60,5 +75,40 @@ public class LCS {
         re.X = X.clone();
         re.Y = Y.clone();
         return re;
+    }
+
+    public static Result getLCS_Backup(String[] X,String[] Y) {
+        int m = X.length;
+        int n = Y.length;
+        Table c = new Table(m,n);
+        Table b = new Table(m,n);
+        for (int i = 1; i <= m;i++)
+            for (int j = 1; j <= n; j++)
+                c.set(i,j,-1);
+        calTableItem(X,Y,c,b,m,n);
+        Result re = new Result();
+        re.X = X.clone();re.Y = Y.clone();
+        re.b = b;re.c = c;
+        return re;
+    }
+    private static int calTableItem(String[] X,String[] Y,Table c,Table b,int i,int j) {
+        if (c.get(i,j) >= 0) return c.get(i,j);
+        if (X[i-1] == Y[j-1]) {
+            c.set(i, j, calTableItem(X, Y, c, b, i - 1, j - 1) + 1);
+            b.set(i, j, TOPLEFT);
+        }
+        else {
+            int top = calTableItem(X,Y,c,b,i-1,j);
+            int left = calTableItem(X,Y,c,b,i,j-1);
+            if (top >= left) {
+                c.set(i,j,top);
+                b.set(i,j,TOP);
+            }
+            else {
+                c.set(i,j,left);
+                b.set(i,j,LEFT);
+            }
+        }
+        return c.get(i,j);
     }
 }
