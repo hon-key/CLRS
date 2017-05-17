@@ -9,6 +9,7 @@ import Algorithims.DataStructure.Tree;
 import Algorithims.DynamicProgramming.CutRod;
 import Algorithims.DynamicProgramming.LCS;
 import Algorithims.DynamicProgramming.MatrixChainOrder;
+import Algorithims.DynamicProgramming.OptimalBST;
 import CHKMath.CholeskyFactorization;
 import CHKMath.DataStructure.Matrix;
 import CHKMath.GaussianElimination;
@@ -310,5 +311,11 @@ public class Main {
         LCS_re.printLCS_Nob();
         LCS.Result LCS_re2 = LCS.getLCS_Backup(LCS_X,LCS_Y);
         LCS_re2.printLCS();
+
+        print("OptimalBST:");
+        double[] p = {0,0.15,0.10,0.05,0.10,0.20};
+        double[] q = {0.05,0.10,0.05,0.05,0.05,0.10};
+        OptimalBST.Result OBST_re = OptimalBST.cal(p,q);
+        OBST_re.printOptimalBST();
     }
 }

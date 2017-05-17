@@ -390,3 +390,13 @@
 	LCS.Result LCS_re = LCS.getLCS(LCS_X,LCS_Y);
   	LCS_re.printLCS();
 ```
+
+**OptimalBST**
+
+```java
+	print("OptimalBST:");
+ 	double[] p = {0,0.15,0.10,0.05,0.10,0.20};
+  	double[] q = {0.05,0.10,0.05,0.05,0.05,0.10};
+	OptimalBST.Result OBST_re = OptimalBST.cal(p,q);
+ 	OBST_re.printOptimalBST();
+```
