@@ -383,6 +383,23 @@
 
 **LCS**
 
+求最长公共子序列，属于求最优解问题，该问题适合使用动态规划来解决。
+
+动态规划类似于分治法，需要将问题分割为多个子问题进行求解。然而分治法只关注问题的分割，没有关注重复计算的问题，有可能导致相同子问题大量重复计算
+
+动态规划也将问题分为多个子问题，但是，它会选择缓存子问题的结果，重复计算问题得到解决
+
+对于求最长公共子序列，其属于求最优解问题，且可以分割为子问题，所以可以使用动态规划来解决
+
+其子问题可以归结为：
+
+<img src="https://github.com/hon-key/CLRS/blob/master/3.png" width = "100%" />
+
+<img src="https://github.com/hon-key/CLRS/blob/master/1.png" width = "100%" />
+
+<img src="https://github.com/hon-key/CLRS/blob/master/2.png" width = "100%" />
+
+
 ```java
 	print("LCS:");
  	String[] LCS_X = {"A","B","C","B","D","A","B"};
