@@ -4,7 +4,7 @@ import com.sun.org.apache.bcel.internal.generic.RET;
 
 /**
  * Created by caihongji on 2017/5/10.
- * 算法：最长公共子串
+ * 算法：最长公共子序列
  */
 public class LCS {
     public static class Table {
